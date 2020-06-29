@@ -47,7 +47,7 @@ Lair.create(
   name: 'Abandoned Museum in the Heart of Town',
   description: "Shake hands with royalty to enter this hidden HQ. This extensively-renovated
                 museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
-                superhero stalking and surveillance needs. Also houses a hero statue collection.",
+                superhero stalking and surveillance needs. Also houses a hero statue collection."
   address: 'Entrance next to the Julius Caesar Statue, Metropolis',
   price_per_night: 4000,
   user: lex_luthor
