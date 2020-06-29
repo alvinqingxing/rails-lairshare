@@ -36,8 +36,8 @@ doc_ock = Villain.create(
 )
 justin_hammer = Villain.create(
   title: 'Justin Hammer',
-  email: 'the_hammer@hammerindustries.com',
-  password: 'password',
+  email: 'the_hammer@hammerindustries.com'
+  password: 'password'
   profile: "Whether you're looking for labs with the latest tech, floating hideouts in 
             international waters, or d-day bunkers, I've got it all."
 )
@@ -48,24 +48,16 @@ Lair.create(
                 exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
                 address like this one, but you could be among them.',
   address: '200 Feet Underground, Park Avenue, NY',
-  price_per_night: 5000,
+  price_per_night: 5000
   user: lex_luthor
 )
+
 Lair.create(
   name: 'Cadmus Labs',
   description: 'This large facility is a dream-come-true for megalomanical scientists
                 looking to play god. Cloning, bioengineering, drug development and testing --
-                you name it, Cadmus has the facilities for it.',
-  address: 'Just outside downtown Metropolis',
-  price_per_night: 5000,
+                you name it, Cadmus has the facilities for it.'
+  address: 'Just outside downtown Metropolis'
+  price_per_night: 5000
   user: lex_luthor
-)
-Lair.create(
-  name: 'A Secure Island Hideaway',
-  description: 'This beautiful island comes with a private apartment, a rocket launch site,
-                a nuclear reactor, landing pads and docks for transport and a fully-trained,
-                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
-  address: 'Crab Key, Jamaica',
-  price_per_night: 1500,
-  user: dr_no
 )
