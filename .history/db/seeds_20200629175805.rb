@@ -74,7 +74,7 @@ Lair.create(
   name: 'Secure and Private Island Hideaway',
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
                 a nuclear reactor, landing pads and docks, as well as a fully-trained,
-                well-equipped group of staff. SPECTRE members, contact me directly for bookings.',
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
   address: 'Crab Key, Jamaica',
   price_per_night: 1500.0,
   user: dr_no
@@ -83,7 +83,7 @@ Lair.create(
   name: 'Hammer Industries HQ',
   description: "Ideal for prototyping, testing and developing superweapons. You won't find
                 a better bargain this close to NYC, besides the Avengers HQ - and if you're
-                on this site, they're not going to be letting you in.",
+                on this site, they're not going to be letting you in."
   address: 'Queens, NYC',
   price_per_night: 10_000.0,
   user: justin_hammer
