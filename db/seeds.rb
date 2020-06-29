@@ -16,7 +16,7 @@ lex_luthor = User.create(
 dr_no = User.create(
   title: 'Dr. No',
   email: 'julius_no@spectre.com',
-  password: 'password'
+  password: 'password',
   profile: 'The unwanted child of a German missionary and a Chinese girl of a good family.
             Book my island and see what comforts $10,000,000 of Tong gold bullion can buy.'
 )
