@@ -1,4 +1,4 @@
 class Lair < ApplicationRecord
-  belongs_to :villain
+  belongs_to :user
   has_many :bookings
 end
