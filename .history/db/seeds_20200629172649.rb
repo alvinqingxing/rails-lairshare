@@ -42,16 +42,6 @@ justin_hammer = User.create(
             international waters, or d-day bunkers, I've got it all."
 )
 
-
-Lair.create(
-  name: 'Abandoned Museum in the Heart of Town',
-  description: "Shake hands with royalty to enter this hidden HQ. This extensively-renovated
-                museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
-                superhero stalking and surveillance needs. Also houses a hero statue collection."
-  address: 'Entrance next to the Julius Caesar Statue, Metropolis',
-  price_per_night: 4000,
-  user: lex_luthor
-)
 Lair.create(
   name: 'Luxury Underground Station',
   description: 'Enjoy palatial comfort and old-time grandeur in this enviably luxurious,
@@ -67,7 +57,7 @@ Lair.create(
                 looking to play god. Cloning, bioengineering, drug development and testing --
                 you name it, Cadmus has the facilities for it.',
   address: 'Just outside downtown Metropolis',
-  price_per_night: 6000,
+  price_per_night: 5000,
   user: lex_luthor
 )
 Lair.create(
@@ -87,4 +77,13 @@ Lair.create(
   address: 'Queens, NYC',
   price_per_night: 10_000,
   user: justin_hammer
+)
+Lair.create(
+  name: 'A Secure Island Hideaway',
+  description: 'This beautiful island comes with a private apartment, a rocket launch site,
+                a nuclear reactor, landing pads and docks for transport and a fully-trained,
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
+  address: 'Crab Key, Jamaica',
+  price_per_night: 1500,
+  user: dr_no
 )
