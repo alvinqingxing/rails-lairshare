@@ -43,11 +43,5 @@ justin_hammer = Villain.create(
 )
 
 Lair.create(
-  name: 'Luxury Underground Station',
-  description: 'Enjoy palatial comfort and old-time grandeur in this enviably luxurious,
-                exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
-                address like this one, but you could be among them.',
-  address: '200 Feet Underground, Park Avenue, NY',
-  price_per_night: 1000
-  user: lex_luthor
+  
 )
