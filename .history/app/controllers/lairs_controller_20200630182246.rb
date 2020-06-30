@@ -9,7 +9,7 @@ class LairsController < ApplicationController
   end
 
   def show
-    @lair = Lair.find_by(params[:lair_id])
+    @lair = Lair.find_by[params[:id]]
   end
 
   def edit

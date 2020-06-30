@@ -10,6 +10,8 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find_by(params[:lair_id])
+    @booking = Booking.new
+    @booking.lair = @lair
   end
 
   def edit

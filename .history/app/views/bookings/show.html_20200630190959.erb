@@ -5,9 +5,9 @@
     <strong>End Date:</strong> <%= @booking.end_date %>
     <hr>
     <strong>Total Days:</strong> <%= @days %> <br>
-    <strong>Total Price:</strong> $<%= '%.2f' % @total_price %> <br>
+    <strong>Total Price:</strong> $<%= @total_price.round(2) %> <br>
     <hr>
-    <%= simple_form_for(@booking, as: :booking, method: :patch, url: reject_booking_path) do |f| %>
-      <%= f.submit 'CANCEL BOOKING', class: 'btn btn-danger' %>
-    <% end %>
+    <%= link_to 'CANCEL BOOKING', reject_booking_url, 
+        data: {confirm: "Your booking will be cancelled!"}
+        class: 'btn btn-danger'  %>
   </div>

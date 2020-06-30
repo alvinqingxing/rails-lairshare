@@ -5,7 +5,7 @@
   
   <hr>
   <div id="booking-form">
-  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+  <%= simple_form_for([@lair, Booking.new], url: new_lair_booking) do |f| %>
   <div class="form-row">
   <%= f.input :start_date, as: :string, input_html: {type: :date} %>
   </div>

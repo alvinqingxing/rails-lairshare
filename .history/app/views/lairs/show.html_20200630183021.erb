@@ -4,14 +4,15 @@
     <strong>Price per night:</strong> <%= @lair.price_per_night %>
   
   <hr>
+  <h3>Book This Lair</h3>
   <div id="booking-form">
-  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+  <%= simple_form_for([@lair, Booking.new], as: :booking, method: :get, url: confirm_lair_booking) do |f| %>
   <div class="form-row">
   <%= f.input :start_date, as: :string, input_html: {type: :date} %>
   </div>
   <div class="form-row">
   <%= f.input :end_date, as: :string, input_html: {type: :date} %>
   </div>
-  <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
+  <%= f.button :submit, 'BOOK', class: 'btn btn-primary' %>
   <% end %>
   </div>

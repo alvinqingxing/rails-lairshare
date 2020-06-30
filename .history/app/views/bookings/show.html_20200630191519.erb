@@ -8,6 +8,9 @@
     <strong>Total Price:</strong> $<%= '%.2f' % @total_price %> <br>
     <hr>
     <%= simple_form_for(@booking, as: :booking, method: :patch, url: reject_booking_path) do |f| %>
-      <%= f.submit 'CANCEL BOOKING', class: 'btn btn-danger' %>
+      <%= f.submit 'CANCEL BOOKING' %>
     <% end %>
+    <%= simple_form_for @booking, reject_booking_path(@booking) do %>
+        data: {confirm: "Your booking will be cancelled!"},
+        class: 'btn btn-danger'  %>
   </div>

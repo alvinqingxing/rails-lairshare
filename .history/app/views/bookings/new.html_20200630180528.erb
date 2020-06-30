@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Book a Lair</h1>
+  <hr>
+  <div id="booking-info">
+    <strong>You're making a booking for:</strong> <%= @booking.lair.name %> <br>
+    <strong>Lair of:</strong> <%= @booking.lair.user.title %> <br>
+  </div>
+  <hr>
+  <div id="booking-form">
+  <%= simple_form_for lair_bookings_url do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  Your booking is for: <%= %> days </br>
+  Your total price is: <%= %> </br>
+  <%= f.button :submit, 'Book this lair' %>
+  <% end %>
+  </div>
+</div>

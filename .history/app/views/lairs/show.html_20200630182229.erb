@@ -1,0 +1,9 @@
+  <div id="booking-form">
+  <%= simple_form_for [@lair, Booking.new] do |f| %>
+  <div class="form-row">
+  <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+  <%= f.input :end_date, as: :string, input_html: {type: :date} %>
+  </div>
+  <%= f.button :submit, 'Book this lair', class: 'btn btn-primary' %>
+  <% end %>
+  </div>

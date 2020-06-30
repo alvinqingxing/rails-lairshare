@@ -32,9 +32,9 @@ class BookingsController < ApplicationController
   end
 
   def reject
-    @booking = Booking.find_by(params[:booking_id])
+    @booking = Booking.find_by(params[:id])
     @booking.status = "rejected"
-    redirect_to root_path
+    redirect_to root
   end
 
   private

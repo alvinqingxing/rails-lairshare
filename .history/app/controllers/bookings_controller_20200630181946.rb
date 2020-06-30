@@ -1,30 +1,25 @@
-require 'date'
-
 class BookingsController < ApplicationController
+  def confirm
+    @booking = Booking.new(booking_params)
+  end
 
   def create
     @booking = Booking.new(booking_params)
-    find_lair
+    @booking.lair = find_lair
     @booking.lair = @lair
-    @booking.start_date = params[:booking][:start_date].to_date
-    @booking.end_date = params[:booking][:end_date].to_date
     @booking.status = "pending"
     @booking.user = current_user
-    days = (@booking.end_date - @booking.start_date).to_i
-    @booking.total_price = @lair.price_per_night * days
     if @booking.valid?
       @booking.save
 
-      redirect_to @booking
+      redirect_to dashboard_path
     else
-      redirect_to @booking.lair
+      render :new
     end
   end
 
   def show
     @booking = Booking.find_by(params[:booking_id])
-    @days = (@booking.end_date - @booking.start_date).to_i
-    @total_price = @days * @booking.lair.price_per_night
   end
 
   def accept
@@ -32,9 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def reject
-    @booking = Booking.find_by(params[:booking_id])
     @booking.status = "rejected"
-    redirect_to root_path
   end
 
   private
@@ -44,6 +37,6 @@ class BookingsController < ApplicationController
   end
 
   def find_lair
-    @lair = Lair.find(params[:lair_id])
+    Lair.find(params[:lair_id])
   end
 end

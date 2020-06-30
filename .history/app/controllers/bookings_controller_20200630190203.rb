@@ -23,8 +23,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find_by(params[:booking_id])
-    @days = (@booking.end_date - @booking.start_date).to_i
-    @total_price = @days * @booking.lair.price_per_night
   end
 
   def accept
@@ -32,9 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def reject
-    @booking = Booking.find_by(params[:booking_id])
     @booking.status = "rejected"
-    redirect_to root_path
   end
 
   private
