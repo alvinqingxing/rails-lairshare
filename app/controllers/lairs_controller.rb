@@ -4,9 +4,17 @@ class LairsController < ApplicationController
   end
 
   def new
+    @user = current_user
+    @lair = Lair.new
   end
 
   def create
+    @lair = Lair.new(lair_params)
+    if @lair.save
+      redirect_to lair_path(@lair)
+    else
+      redirect_to dashboard_path
+    end
   end
 
   def show
@@ -20,5 +28,11 @@ class LairsController < ApplicationController
   end
 
   def destroy
+  end
+
+private
+
+  def lair_params
+    params.require(:lair).permit(:name, :description, :address, :price_per_night)
   end
 end
