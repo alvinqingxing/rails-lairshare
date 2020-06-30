@@ -19,8 +19,9 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find_by(params[:booking_id])
+    @booking = Booking.find_by(booking_params)
   end
+
 
   def accept
     @booking.status = "accepted"

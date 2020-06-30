@@ -7,8 +7,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     find_lair
     @booking.lair = @lair
-    @booking.status = "pending"
-    @booking.user = current_user
     if @booking.valid?
       @booking.save
 
@@ -19,15 +17,13 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find_by(params[:booking_id])
+    @booking = Booking.find_by(booking_params)
   end
 
   def accept
-    @booking.status = "accepted"
   end
 
   def reject
-    @booking.status = "rejected"
   end
 
   private
