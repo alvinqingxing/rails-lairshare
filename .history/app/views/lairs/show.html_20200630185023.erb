@@ -1,16 +1,11 @@
-<h1>Lairs#show</h1>
-<p>Find me in app/views/lairs/show.html.erb</p>
-
-<h2><%= @lair.name %></h2>
-<p><%= @lair.description %></p>
-<p><%= @lair.address %></p>
-<p>$<%= '%.2f' % @lair.price_per_night %></p>
-<p><%= @lair.user_id %></p>
-
-
+  
+    <strong>Listing Name:</strong> <%= @lair.name %> <br>
+    <strong>Owner:</strong> <%= @lair.user.title %> <br>
+    <strong>Price per night:</strong> <%= @lair.price_per_night %>
+  
   <hr>
   <div id="booking-form">
-  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+  <%= simple_form_for([@lair, Booking.new], url: new_lair_booking_url) do |f| %>
   <div class="form-row">
   <%= f.input :start_date, as: :string, input_html: {type: :date} %>
   </div>

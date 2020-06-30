@@ -5,15 +5,14 @@ Rails.application.routes.draw do
   get    "dashboard",          to: "pages#dashboard", as: :dashboard
 
   resources :lairs do
-    resources :bookings, only: [:create] do
-    end
+    resources :bookings, only: [:new, :create]
     resources :favourites, only: [:create]
   end
 
   resources :bookings, only: [:show] do
     member do 
-      get :accept
-      get :reject
+      patch :accept
+      patch :reject
     end
   end
 

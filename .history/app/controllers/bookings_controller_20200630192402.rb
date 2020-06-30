@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find_by(params[:booking_id])
-    @booking.status = "accepted"
+    @booking.status = "rejected"
     @booking.save
     redirect_to dashboard_path
   end
@@ -38,5 +38,11 @@ class BookingsController < ApplicationController
     @booking.status = "rejected"
     @booking.save
     redirect_to dashboard_path
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
   end
 end
