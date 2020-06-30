@@ -1,5 +1,6 @@
 class LairsController < ApplicationController
   def index
+    @lairs = Lair.all
   end
 
   def new
@@ -9,6 +10,7 @@ class LairsController < ApplicationController
   end
 
   def show
+    @lair = Lair.find(params[:id])
   end
 
   def edit
