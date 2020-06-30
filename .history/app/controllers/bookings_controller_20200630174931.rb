@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @booking.lair = find_lair
+    @booking.lair = Lair.find_by(params[:lair_id])
   end
 
   def create
