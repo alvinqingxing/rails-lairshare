@@ -1,0 +1,22 @@
+<h1>Lairs#show</h1>
+<p>Find me in app/views/lairs/show.html.erb</p>
+
+<h2><%= @lair.name %></h2>
+<p><%= @lair.description %></p>
+<p><%= @lair.address %></p>
+<p><%= @lair.price_per_night %></p>
+<p><%= @lair.user_id %></p>
+
+
+  <hr>
+  <div id="booking-form">
+  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+  <div class="form-row">
+  <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+  </div>
+  <div class="form-row">
+  <%= f.input :end_date, as: :string, input_html: {type: :date} %>
+  </div>
+  <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
