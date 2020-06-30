@@ -49,7 +49,7 @@ Lair.create(
                 museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
                 superhero stalking and surveillance needs. Also houses a hero statue collection.",
   address: 'Entrance next to the Julius Caesar Statue, Metropolis',
-  price_per_night: 4000.0,
+  price_per_night: 4000,
   user: lex_luthor
 )
 Lair.create(
@@ -58,7 +58,7 @@ Lair.create(
                 exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
                 address like this one, but you could be among them.',
   address: '200 Feet Underground, Park Avenue, NY',
-  price_per_night: 5000.0,
+  price_per_night: 5000,
   user: lex_luthor
 )
 Lair.create(
@@ -67,24 +67,24 @@ Lair.create(
                 looking to play god. Cloning, bioengineering, drug development and testing --
                 you name it, Cadmus has the facilities for it.',
   address: 'Just outside downtown Metropolis',
-  price_per_night: 6000.0,
+  price_per_night: 6000,
   user: lex_luthor
 )
 Lair.create(
   name: 'Secure and Private Island Hideaway',
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
                 a nuclear reactor, landing pads and docks, as well as a fully-trained,
-                well-equipped group of staff. SPECTRE members, contact me directly for bookings.',
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
   address: 'Crab Key, Jamaica',
-  price_per_night: 1500.0,
+  price_per_night: 1500,
   user: dr_no
 )
 Lair.create(
   name: 'Hammer Industries HQ',
   description: "Ideal for prototyping, testing and developing superweapons. You won't find
                 a better bargain this close to NYC, besides the Avengers HQ - and if you're
-                on this site, they're not going to be letting you in.",
+                on this site, they're not going to be letting you in."
   address: 'Queens, NYC',
-  price_per_night: 10_000.0,
+  price_per_night: 10_000,
   user: justin_hammer
 )

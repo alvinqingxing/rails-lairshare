@@ -74,7 +74,7 @@ Lair.create(
   name: 'Secure and Private Island Hideaway',
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
                 a nuclear reactor, landing pads and docks, as well as a fully-trained,
-                well-equipped group of staff. SPECTRE members, contact me directly for bookings.',
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
   address: 'Crab Key, Jamaica',
   price_per_night: 1500.0,
   user: dr_no

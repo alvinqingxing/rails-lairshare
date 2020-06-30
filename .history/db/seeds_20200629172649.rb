@@ -8,7 +8,7 @@
 
 lex_luthor = User.create(
   title: 'Lex Luthor',
-  email: 'test@test.com',
+  email: 'lex@lexcorp.com',
   password: 'password',
   profile: "Metropolis may be my home base, but my business takes me around the world.
             If you're a regular customer of LexCorp, message me for special benefits."
@@ -16,13 +16,13 @@ lex_luthor = User.create(
 dr_no = User.create(
   title: 'Dr. No',
   email: 'julius_no@spectre.com',
-  password: 'password',
+  password: 'password'
   profile: 'The unwanted child of a German missionary and a Chinese girl of a good family.
             Book my island and see what comforts $10,000,000 of Tong gold bullion can buy.'
 )
 raoul_silva = User.create(
   title: 'Raoul Silva',
-  email: 'raoul_silva@spectre.com',
+  email: 'raoul_silva@lexcorp.com',
   password: 'password',
   profile: "I used to be based in Hong Kong and Asia, but I'm looking to return
             to England and Scotland in the coming months."
@@ -42,23 +42,13 @@ justin_hammer = User.create(
             international waters, or d-day bunkers, I've got it all."
 )
 
-
-Lair.create(
-  name: 'Abandoned Museum in the Heart of Town',
-  description: "Shake hands with royalty to enter this hidden HQ. This extensively-renovated
-                museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
-                superhero stalking and surveillance needs. Also houses a hero statue collection.",
-  address: 'Entrance next to the Julius Caesar Statue, Metropolis',
-  price_per_night: 4000.0,
-  user: lex_luthor
-)
 Lair.create(
   name: 'Luxury Underground Station',
   description: 'Enjoy palatial comfort and old-time grandeur in this enviably luxurious,
                 exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
                 address like this one, but you could be among them.',
   address: '200 Feet Underground, Park Avenue, NY',
-  price_per_night: 5000.0,
+  price_per_night: 5000,
   user: lex_luthor
 )
 Lair.create(
@@ -67,24 +57,33 @@ Lair.create(
                 looking to play god. Cloning, bioengineering, drug development and testing --
                 you name it, Cadmus has the facilities for it.',
   address: 'Just outside downtown Metropolis',
-  price_per_night: 6000.0,
+  price_per_night: 5000,
   user: lex_luthor
 )
 Lair.create(
   name: 'Secure and Private Island Hideaway',
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
-                a nuclear reactor, landing pads and docks, as well as a fully-trained,
-                well-equipped group of staff. SPECTRE members, contact me directly for bookings.',
+                a nuclear reactor, landing pads and docks for transport and a fully-trained,
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
   address: 'Crab Key, Jamaica',
-  price_per_night: 1500.0,
+  price_per_night: 1500,
   user: dr_no
 )
 Lair.create(
   name: 'Hammer Industries HQ',
   description: "Ideal for prototyping, testing and developing superweapons. You won't find
                 a better bargain this close to NYC, besides the Avengers HQ - and if you're
-                on this site, they're not going to be letting you in.",
+                on this site, they're not going to be letting you in."
   address: 'Queens, NYC',
-  price_per_night: 10_000.0,
+  price_per_night: 10_000,
   user: justin_hammer
+)
+Lair.create(
+  name: 'A Secure Island Hideaway',
+  description: 'This beautiful island comes with a private apartment, a rocket launch site,
+                a nuclear reactor, landing pads and docks for transport and a fully-trained,
+                well-equipped group of staff. SPECTRE members, contact me directly for bookings.'
+  address: 'Crab Key, Jamaica',
+  price_per_night: 1500,
+  user: dr_no
 )
