@@ -2,8 +2,8 @@ require 'date'
 
 class BookingsController < ApplicationController
   def create
-    @booking = Booking.new
-    @lair = Lair.find(params[:lair_id])
+    @booking = Booking.new(booking_params)
+    find_lair
     @booking.lair = @lair
     @booking.start_date = params[:booking][:start_date].to_date
     @booking.end_date = params[:booking][:end_date].to_date
@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find_by(params[:booking_id])
-    @booking.status = "accepted"
+    @booking.status = "rejected"
     @booking.save
     redirect_to dashboard_path
   end
@@ -44,5 +44,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
+  end
+
+  def find_lair
+    @lair = Lair.find(params[:lair_id])
   end
 end

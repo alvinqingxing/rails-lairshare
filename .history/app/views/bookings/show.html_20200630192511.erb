@@ -1,4 +1,4 @@
-  <div id="booking-info d-flex col-6">
+  <div id="booking-info">
     <strong>Lair Booked:</strong> <%= @booking.lair.name %> <br>
     <strong>Lair Owner:</strong> <%= @booking.lair.user.title %> <br>
     <strong>Booking User:</strong> <%= @booking.user.title %> <br>
@@ -9,7 +9,7 @@
     <strong>Total Price:</strong> $<%= '%.2f' % @total_price %> <br>
     <strong>Current Status:</strong> <%= @booking.status %> <br>
     <hr>
-    <div class="d-flex col-6 justify-content-around">
+    <div class="d-flex">
     <%= simple_form_for(@booking, as: :booking, method: :get, url: reject_booking_path) do |f| %>
       <%= f.submit 'CANCEL BOOKING', class: 'btn btn-danger' %>
     <% end %>
