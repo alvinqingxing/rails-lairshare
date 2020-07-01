@@ -2,9 +2,15 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
+<<<<<<< HEAD
   get '/user' => "pages#dashboard", :as => :user_root
   get "dashboard", to: "pages#dashboard", as: :dashboard
 
+=======
+  get    "dashboard", to: "pages#dashboard", as: :dashboard
+  get '/user' => "pages#dashboard", :as => :user_root
+    
+>>>>>>> master
   resources :lairs do
     resources :bookings, only: [:create] do
     end

@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Cleaning database..."
+Booking.destroy_all
+Lair.destroy_all
+User.destroy_all
+
+puts "Creating Users & Lairs..."
+
+
 lex_luthor = User.create(
   title: 'Lex Luthor',
   email: 'test@test.com',
@@ -88,3 +96,18 @@ Lair.create(
   price_per_night: 10_000.0,
   user: justin_hammer
 )
+
+
+4.times do 
+  bookings = Booking.create!(
+      user: User.all.sample,
+      lair: Lair.all.sample,
+      start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+      end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
+      status: ["rejected", "pending", "accepted"].sample,
+      total_price: rand(10..100)
+  )
+end
+
+
+puts "Finished!"

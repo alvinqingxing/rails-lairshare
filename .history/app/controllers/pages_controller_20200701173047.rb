@@ -17,8 +17,8 @@ class PagesController < ApplicationController
     # @my_lair_bookings = my_lair_array.flatten
 
     # @my_own_bookings = @user.bookings
-    @my_own_bookings = Booking.where(user_id: current_user.id)
-    # exclude lairs included in @lairs?
+    @my_own_bookings = Booking.where( user_id: current_user.id)
+    # exclude lairs included in @lairs? 
 
     @favourites = current_user.favourites
   end

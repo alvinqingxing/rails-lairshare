@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User Profile</h1>
+
+<div class = "container">
+<h2><%= @user.title %></h2>
+    <h2><%= @user.profile %></h2>
+    <h2><%= @user.email %></h2>
+
+</div>
+
+<div class = "container">
+<ul>
+    <% @lairs.each do |lair| %>
+        <li><%= lair.name %> <%= lair.description %> <%= lair.address %> <%= lair.price_per_night %> </li>
+
+    <% end %>
+
+    </ul> 
+
+    <%= link_to "Go back to previous page", :back , class: "btn btn-info"  %>
+
+
+</div>
