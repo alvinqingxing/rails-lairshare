@@ -7,6 +7,5 @@ class PagesController < ApplicationController
   def dashboard
     @lair = Lair.new
     @lair.user = current_user
-    @favourites = Favourite.where(current_user)
   end
 end
