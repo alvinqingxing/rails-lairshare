@@ -24,11 +24,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by(params[:booking_id])
     @days = (@booking.end_date - @booking.start_date).to_i
     @total_price = @days * @booking.lair.price_per_night
-    debugger
   end
 
   def accept
     @booking = Booking.find_by(params[:booking_id])
+    debugger
     @booking.status = "accepted"
     @booking.save
     redirect_to dashboard_path
