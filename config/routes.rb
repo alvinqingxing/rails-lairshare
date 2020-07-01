@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:show] do
-    member do 
+    member do
       get :accept
       get :reject
     end
