@@ -17,14 +17,13 @@
       <p><i class="fas fa-dollar-sign"></i>
       Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
       <p><i class="fas fa-fingerprint"></i>
-      Owned By: <%= link_to @lair.user.title, @lair.user %></p>
+      Owned By: <%= @lair.user.title %></p>
           </div>
 <%# end of info %>
 
 <%# Booking form %>
 <div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
-  <strong>Book This Lair</strong>
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
     <div class="form-row">
       <%= f.input :start_date, as: :string,
@@ -41,11 +40,7 @@
                         id: 'end-date',
                         value: DateTime.now.tomorrow.strftime("%Y-%m-%d") } %>
     </div>
-  <div id="booking-info">
-    <div id="total-days"></div>
-    <div id="total-price"></div>
-  </div>
-    <%= f.button :submit, 'MAKE A BOOKING', class: 'btn btn-primary' %>
+    <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
   <% end %>
 </div>
 </div>
@@ -55,7 +50,12 @@
   <div class="row" style="margin-top: 2em;">
     <div class="col-sm-8">
     <hr>
-
+    <div id="booking-info">
+    <div id="total-days">
+    </div>
+    <div id="total-price">
+    </div>
+    </div>
     <%= render "lairs/edit", user: @current_user, lair: @lair %>
     </div>
     </div>

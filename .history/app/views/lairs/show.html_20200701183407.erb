@@ -17,7 +17,7 @@
       <p><i class="fas fa-dollar-sign"></i>
       Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
       <p><i class="fas fa-fingerprint"></i>
-      Owned By: <%= link_to @lair.user.title, @lair.user %></p>
+      Owned By: <%= @lair.user.title %></p>
           </div>
 <%# end of info %>
 
@@ -41,12 +41,13 @@
                         id: 'end-date',
                         value: DateTime.now.tomorrow.strftime("%Y-%m-%d") } %>
     </div>
+    <%= f.button :submit, 'BOOK NOW', class: 'btn btn-primary' %>
+  <% end %>
   <div id="booking-info">
+  <strong>Booking Info</strong>
     <div id="total-days"></div>
     <div id="total-price"></div>
   </div>
-    <%= f.button :submit, 'MAKE A BOOKING', class: 'btn btn-primary' %>
-  <% end %>
 </div>
 </div>
 

@@ -20,7 +20,7 @@ date_select.forEach((field) => {
     const total_price = difference * price.toFixed(2);
     price_output.innerHTML = "";
     days_output.innerHTML = "";
-    price_output.insertAdjacentHTML("beforeend", `<strong>Price:</strong> ${total_price}`);
-    days_output.insertAdjacentHTML("beforeend", `<strong>Days:</strong> ${difference}`);
+    price_output.insertAdjacentHTML("beforeend", `Price: ${total_price}`);
+    days_output.insertAdjacentHTML("beforeend", `Days: ${difference}`);
   })
 })
