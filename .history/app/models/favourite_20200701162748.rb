@@ -2,5 +2,5 @@ class Favourite < ApplicationRecord
   belongs_to :user
   belongs_to :lair
 
-  validates :user, uniqueness: { scope: :lair }
+  validates_uniqueness_of :user, :scope => [:lair]
 end

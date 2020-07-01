@@ -3,10 +3,14 @@
   <% @lairs.each do |lair| %>
     <li>
       <%= lair.name %>
-      <%= link_to lair_favourites_path(lair),
+      <% if @favourite_lairs.include?(lair)  %>
+      it exists already!
+      <% else %>
+        <%= link_to lair_favourites_path(lair),
                     method: :post,
                     class: 'text-decoration-none favourite-button' do %>
-        ♡
+          ♡
+        <% end %>
       <% end %>
     </li>
   <% end %>

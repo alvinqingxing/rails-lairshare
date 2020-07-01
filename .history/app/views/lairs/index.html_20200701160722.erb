@@ -1,0 +1,17 @@
+<h1>Lairs#index</h1>
+<ul>
+  <% @lairs.each do |lair| %>
+    <li>
+      <%= lair.name %> 
+      <%= link_to lair_favourites_path(lair),
+                  method: :post,
+                  class: 'text-decoration-none favourite-button' do %>
+        ♡
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+      <% current_user.favourites.lairs do |lair| %>
+      <%= lair %>
+      <% end %>

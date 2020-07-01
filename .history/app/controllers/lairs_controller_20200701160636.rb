@@ -1,7 +1,7 @@
 class LairsController < ApplicationController
   def index
     @lairs = Lair.all
-    fail
+    @favourite_lairs = current_user.favourite.lair
   end
 
   def new

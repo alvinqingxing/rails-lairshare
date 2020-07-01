@@ -1,7 +1,6 @@
 class LairsController < ApplicationController
   def index
     @lairs = Lair.all
-    fail
   end
 
   def new

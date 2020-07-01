@@ -7,4 +7,10 @@ class FavouritesController < ApplicationController
 
     redirect_back
   end
+
+  def exists(lair)
+    fave = Favourite.new
+    fave.user = current_user
+    fave.lair = lair
+  end
 end
