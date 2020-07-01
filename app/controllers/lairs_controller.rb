@@ -20,16 +20,26 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find(params[:id])
+    @lair.user = current_user
   end
 
   def edit
+    @lair = Lair.find(params[:id])
+    @lair.user = current_user
   end
 
   def update
+    @lair = Lair.find(params[:id])
+    @lair.user = current_user
+    @lair.update(lair_params)
+    redirect_to dashboard_path
   end
 
   def destroy
-  end
+    @lair = Lair.find(params[:id])
+    @lair.user = current_user
+    @lair.destroy(lair_params)
+    redirect_to dashboard_pathend
 
 private
 
