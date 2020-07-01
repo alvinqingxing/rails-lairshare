@@ -8,5 +8,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  max-width: 20%;
+  min-width: 120px;
+  object-fit: cover;
 }
