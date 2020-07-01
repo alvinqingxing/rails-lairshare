@@ -1,0 +1,17 @@
+<h1>Lairs#index</h1>
+<ul>
+  <% @lairs.each do |lair| %>
+    <li>
+      <%= lair.name %>
+      <% if lair.favourites - current_user.favourites %>
+      it exists already!
+      <% else %>
+        <%= link_to lair_favourites_path(lair),
+                    method: :post,
+                    class: 'text-decoration-none favourite-button' do %>
+          ♡
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

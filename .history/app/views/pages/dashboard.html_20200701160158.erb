@@ -1,0 +1,9 @@
+<h1>Dashboards#dashboard</h1>
+<%= render "lairs/new", user: @current_user, lair: @lair %>
+
+<div id="my-favourites">
+<h2>Your Favourite Lairs</h2>
+<% @favourites.each do |fave| %>
+<li><%= fave.lair.name %></li>
+<% end %>
+</div>
