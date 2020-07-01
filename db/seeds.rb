@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# puts "Cleaning database..."
-# User.destroy_all
-# Lair.destroy_all
+puts "Cleaning database..."
+Booking.destroy_all
+Lair.destroy_all
+User.destroy_all
 
-# puts "Creating Users & Lairs..."
+puts "Creating Users & Lairs..."
 
 
 lex_luthor = User.create(
@@ -109,4 +110,4 @@ Lair.create(
 end
 
 
-# puts "Finished!"
+puts "Finished!"
