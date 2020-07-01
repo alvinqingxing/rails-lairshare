@@ -11,20 +11,20 @@
     <div class="col-sm-8">
     <%# font awesome added %>
       <p><i class="fas fa-hotel"></i>
-      <strong>About</strong><br> <%= @lair.description %></p>
+      <strong>About</strong> <%= @lair.description %></p>
       <p><i class="fas fa-map-marker-alt"></i>
-      <strong>Location</strong><br> <%= @lair.address %></p>
+      <strong>Location</strong> <%= @lair.address %></p>
       <p><i class="fas fa-dollar-sign"></i>
-      <strong>Price Per Night</strong><br> $<%= '%.2f' % @lair.price_per_night %></p>
+      <strong>Price Per Night</strong> $<%= '%.2f' % @lair.price_per_night %></p>
       <p><i class="fas fa-fingerprint"></i>
-      <strong>Owned By</strong><br> <%= link_to @lair.user.title, @lair.user %></p>
+      <strong>Owned By</strong> <%= link_to @lair.user.title, @lair.user %></p>
           </div>
 <%# end of info %>
 
 <%# Booking form %>
 <div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
-<strong>Book This Lair</strong>
+  <strong>Book This Lair</strong>
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
     <div class="form-row">
       <%= f.input :start_date, as: :string,

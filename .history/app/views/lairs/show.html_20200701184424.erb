@@ -24,7 +24,7 @@
 <%# Booking form %>
 <div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
-<strong>Book This Lair</strong>
+  <strong>Book This Lair</strong>
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
     <div class="form-row">
       <%= f.input :start_date, as: :string,
