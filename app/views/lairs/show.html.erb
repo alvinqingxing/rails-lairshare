@@ -1,11 +1,28 @@
-<h1>Lairs#show</h1>
-<p>Find me in app/views/lairs/show.html.erb</p>
-<h2><%= @lair.name %></h2>
-<p><%= @lair.description %></p>
-<p><%= @lair.address %></p>
-<p>Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
-<p>Owned By: <%= @lair.user.title %></p>
-<hr>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><h2><%= @lair.name %></h2></h1>
+    <p class="lead">Book this lair today!</p>
+  </div>
+</div>
+
+<div class="container">
+<%# info %>
+  <div class="row" style="margin-top: 2em;">
+    <div class="col-sm-8">
+    <%# font awesome added %>
+      <p><i class="fas fa-hotel"></i>
+      <%= @lair.description %></p>
+      <p><i class="fas fa-map-marker-alt"></i>
+      <%= @lair.address %></p>
+      <p><i class="fas fa-dollar-sign"></i>
+      Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
+      <p><i class="fas fa-fingerprint"></i>
+      Owned By: <%= @lair.user.title %></p>
+          </div>
+<%# end of info %>
+
+<%# Booking form %>
+<div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
     <div class="form-row">
@@ -26,12 +43,21 @@
     <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
   <% end %>
 </div>
-<hr>
-<div id="booking-info">
-<div id="total-days">
 </div>
-<div id="total-price">
-</div>
-</div>
-<%= render "lairs/edit", user: @current_user, lair: @lair %>
-<%= link_to "Delete #{@lair.name}", lair_path(@lair), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<div class="container">
+<%# edit lair %>
+  <div class="row" style="margin-top: 2em;">
+    <div class="col-sm-8">
+    <hr>
+    <div id="booking-info">
+    <div id="total-days">
+    </div>
+    <div id="total-price">
+    </div>
+    </div>
+    <%= render "lairs/edit", user: @current_user, lair: @lair %>
+    </div>
+    </div>
+    </div>
+<%# end of edit lair %>

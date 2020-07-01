@@ -15,7 +15,7 @@
           <div class="card-body">
             <%= link_to lair.name, lair_path(lair) %>
             <%= link_to lair_favourites_path(lair),
-                          Fmethod: :post,
+                          method: :post,
                           class: 'text-decoration-none favourite-button' do %>
               ♡
             <% end %>
