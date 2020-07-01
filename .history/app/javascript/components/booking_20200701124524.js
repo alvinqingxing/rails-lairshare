@@ -17,8 +17,7 @@ date_select.forEach((field) => {
     const hours = mins * 60;
     const days = hours * 24;
     const difference = Math.round((ending - starting) / days);
-    const total_price = difference * price.toFixed(2);
-    price_output.insertAdjacentHTML("beforeend", `Price: ${total_price}`);
-    days_output.insertAdjacentHTML("beforeend", `Days: ${difference}`);
+    const total_price = difference * price.toFixed(2)
+    console.log(total_price);
   })
 })

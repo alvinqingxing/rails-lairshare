@@ -5,8 +5,6 @@ const start_date = document.querySelector("#start-date");
 const end_date = document.querySelector("#end-date");
 
 // These are the output selectors
-const price_output = document.querySelector("#total-price");
-const days_output = document.querySelector("#total-days");
 
 date_select.forEach((field) => {
   field.addEventListener("change", (e) => {
@@ -17,8 +15,7 @@ date_select.forEach((field) => {
     const hours = mins * 60;
     const days = hours * 24;
     const difference = Math.round((ending - starting) / days);
-    const total_price = difference * price.toFixed(2);
-    price_output.insertAdjacentHTML("beforeend", `Price: ${total_price}`);
-    days_output.insertAdjacentHTML("beforeend", `Days: ${difference}`);
+    const total_price = difference * price.toFixed(2)
+    console.log(total_price);
   })
 })
