@@ -1,22 +1,39 @@
-<h1>Lairs#show</h1>
-<p>Find me in app/views/lairs/show.html.erb</p>
-
-<h2><%= @lair.name %></h2>
-<p><%= @lair.description %></p>
-<p><%= @lair.address %></p>
-<p>$<%= '%.2f' % @lair.price_per_night %></p>
-<p><%= @lair.user_id %></p>
-
-
-  <hr>
-  <div id="booking-form">
-  <%= simple_form_for([@lair, Booking.new]) do |f| %>
-  <div class="form-row">
-  <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><h2><%= @lair.name %></h2></h1>
+    <p class="lead">Book this lair today!</p>
   </div>
-  <div class="form-row">
-  <%= f.input :end_date, as: :string, input_html: {type: :date} %>
+</div>
+
+<div class="container">
+<%# info %>
+  <div class="row" style="margin-top: 2em;">
+    <div class="col-sm-8">
+    <%# font awesome added %>
+      <p><i class="fas fa-hotel"></i>
+      <%= @lair.description %></p>
+      <p><i class="fas fa-map-marker-alt"></i>
+      <%= @lair.address %></p>
+      <p><i class="fas fa-dollar-sign"></i>
+      <%= '%.2f' % @lair.price_per_night %></p>
+      <p><i class="fas fa-fingerprint"></i>
+      Lair ID: <%= @lair.user_id %></p>
+    </div>
+  <div class="col-sm-4">
+<%# end of info %>
+
+<%# Booking form %>
+  <div id="booking-form" style="margin-left: 4em;">
+    <%= simple_form_for([@lair, Booking.new]) do |f| %>
+      <div class="form-row">
+        <%= f.input :start_date, as: :string, input_html: {type: :date} %>
+      </div>
+      <div class="form-row">
+          <%= f.input :end_date, as: :string, input_html: {type: :date} %>
+      </div>
+        <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
+    <% end %>
+      </div>
+    </div>
   </div>
-  <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
-  <% end %>
-  </div>
+</div>
