@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 message my-3">
+      <h4>Edit your Lair</h4>
+        <%= simple_form_for @lair do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :address %>
+        <%= f.input :price_per_night %>
+        <%= f.button :submit, class: "btn btn-link" %>
+        <% end %>
+        <div class="btn btn-link mb-2">
+        <%= link_to "Delete #{@lair.name}", lair_path(@lair), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

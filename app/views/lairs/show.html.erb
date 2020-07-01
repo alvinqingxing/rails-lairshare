@@ -15,25 +15,49 @@
       <p><i class="fas fa-map-marker-alt"></i>
       <%= @lair.address %></p>
       <p><i class="fas fa-dollar-sign"></i>
-      <%= '%.2f' % @lair.price_per_night %></p>
+      Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
       <p><i class="fas fa-fingerprint"></i>
-      Lair ID: <%= @lair.user_id %></p>
-    </div>
-  <div class="col-sm-4">
+      Owned By: <%= @lair.user.title %></p>
+          </div>
 <%# end of info %>
 
 <%# Booking form %>
-  <div id="booking-form" style="margin-left: 4em;">
-    <%= simple_form_for([@lair, Booking.new]) do |f| %>
-      <div class="form-row">
-        <%= f.input :start_date, as: :string, input_html: {type: :date} %>
-      </div>
-      <div class="form-row">
-          <%= f.input :end_date, as: :string, input_html: {type: :date} %>
-      </div>
-        <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
-    <% end %>
-      </div>
+<div class="col-sm-4">
+<div id="booking-form" data-price="<%= @lair.price_per_night %>">
+  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+    <div class="form-row">
+      <%= f.input :start_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'start-date',
+                        value: DateTime.now.strftime("%Y-%m-%d") } %>
     </div>
-  </div>
+    <div class="form-row">
+
+      <%= f.input :start_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'end-date',
+                        value: DateTime.now.tomorrow.strftime("%Y-%m-%d") } %>
+    </div>
+    <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
+  <% end %>
 </div>
+</div>
+
+<div class="container">
+<%# edit lair %>
+  <div class="row" style="margin-top: 2em;">
+    <div class="col-sm-8">
+    <hr>
+    <div id="booking-info">
+    <div id="total-days">
+    </div>
+    <div id="total-price">
+    </div>
+    </div>
+    <%= render "lairs/edit", user: @current_user, lair: @lair %>
+    </div>
+    </div>
+    </div>
+<%# end of edit lair %>

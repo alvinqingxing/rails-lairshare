@@ -1,0 +1,35 @@
+<h1>Lairs#show</h1>
+<p>Find me in app/views/lairs/show.html.erb</p>
+<h2><%= @lair.name %></h2>
+<p><%= @lair.description %></p>
+<p><%= @lair.address %></p>
+<p>Price Per Night: $<%= '%.2f' % @lair.price_per_night %></p>
+<p>Owned By: <%= @lair.user.title %></p>
+<hr>
+<div id="booking-form" data-price="<%= @lair.price_per_night %>">
+  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+    <div class="form-row">
+      <%= f.input :start_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'start-date',
+                        value: @today } %>
+    </div>
+    <div class="form-row">
+
+      <%= f.input :start_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'end-date',
+                        value: DateTime.now.strftime("%Y-%m-%d") } %>
+    </div>
+    <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+<hr>
+<div id="booking-info">
+<div id="total-days">
+</div>
+<div id="total-price">
+</div>
+</div>
