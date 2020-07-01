@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  get '/user' => "pages#dashboard", :as => :user_root
+  get '/user', to: "pages#dashboard"
   get "dashboard", to: "pages#dashboard", as: :dashboard
 
   resources :lairs do
