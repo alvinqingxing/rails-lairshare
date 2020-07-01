@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Lairshare!</h1>
+
+<form action="/lairs"> 
+    <input name= "City" type="text"> 
+    <input type="submit" value="find out lairs!"> 
+</form>
+
+
+<%= link_to "Dashboard", dashboard_path, class: "btn btn-info"  %>

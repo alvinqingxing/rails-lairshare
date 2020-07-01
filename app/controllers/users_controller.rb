@@ -1,22 +1,10 @@
 class UsersController < ApplicationController
-  def index
+  def index #all tasks 
+    @users = User.all
   end
-
-  def new
-  end
-
-  def create
-  end
-
+  
   def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+      @user = User.find(params[:id])
+      @lairs = @user.lairs
   end
 end
