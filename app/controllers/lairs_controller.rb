@@ -10,6 +10,7 @@ class LairsController < ApplicationController
 
   def create
     @lair = Lair.new(lair_params)
+    @lair.user = current_user
     if @lair.save
       redirect_to lair_path(@lair)
     else
