@@ -1,0 +1,1 @@
+const date_select = document.querySelectorAll(".select-date");

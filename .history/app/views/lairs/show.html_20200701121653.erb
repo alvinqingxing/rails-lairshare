@@ -9,10 +9,10 @@
 <div id="booking-form">
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
     <div class="form-row">
-      <%= f.input :start_date, as: :string, input_html: {type: :date, class: 'select-date', id: 'start-date'} %>
+      <%= f.input :start_date, as: :string, input_html: {type: :date, class: 'select-date'} %>
     </div>
     <div class="form-row">
-      <%= f.input :end_date, as: :string, input_html: {type: :date, class: 'select-date', id: 'end-date'} %>
+      <%= f.input :end_date, as: :string, input_html: {type: :date, class: 'select-date'} %>
     </div>
     <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
   <% end %>
