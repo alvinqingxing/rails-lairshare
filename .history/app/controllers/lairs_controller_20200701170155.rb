@@ -20,6 +20,7 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find(params[:id])
+    @lair.user = current_user
   end
 
   def edit

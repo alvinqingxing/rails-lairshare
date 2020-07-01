@@ -3,6 +3,7 @@ const form = document.querySelector("#booking-form")
 const date_select = document.querySelectorAll(".select-date");
 const start_date = document.querySelector("#start-date");
 const end_date = document.querySelector("#end-date");
+const info = document.querySelector("#booking-info")
 
 // These are the output selectors
 const price_output = document.querySelector("#total-price");
