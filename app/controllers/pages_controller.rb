@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-<<<<<<< HEAD
+
     @user = current_user
     @lairs = @user.lairs
     @my_lair_bookings = Booking.joins(:lair).where("lairs.user_id = #{current_user.id}")
@@ -20,10 +20,5 @@ class PagesController < ApplicationController
     # @my_own_bookings = @user.bookings
     @my_own_bookings = Booking.where( user_id: current_user.id)
     #exclude lairis included in @lairs? 
-
-=======
-    @lair = Lair.new
-    @lair.user = current_user
->>>>>>> master
   end
 end
