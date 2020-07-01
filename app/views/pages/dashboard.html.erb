@@ -1,2 +1,74 @@
+<<<<<<< HEAD
+<h1>User Dashboard</h1>
+
+<h2>Bookings for my lairs</h2>
+
+
+<div class ="container">
+    <div class = "row">
+        <div class = "booking_card">
+            <% @my_lair_bookings.each do |booking| %>
+
+
+            <%= booking.start_date%>
+            <%= booking.end_date%>
+            <%= booking.status%>
+            <%= booking.lair.name%>
+
+
+                <%= simple_form_for(booking, as: :booking, method: :get, url: reject_booking_path(booking)) do |f| %>
+                <%= f.submit 'CANCEL BOOKING', class: 'btn btn-danger' %>
+                <% end %>
+                
+                <%= simple_form_for(booking, as: :booking, method: :get, url: accept_booking_path(booking)) do |f| %>
+                    <%= f.submit 'ACCEPT BOOKING', class: 'btn btn-success' %>
+                <% end %>
+
+            <%end%>
+        </div>
+    </div>
+</div>
+
+<h2>My Lairs</h2>
+
+<div class = "container">
+    <div class = "row">
+        <ul class = "cards">
+            <% @lairs.each do |lair| %>
+            <li class = "card"><%= lair.name %> <%= lair.description%> <%= lair.address%> <%= lair.price_per_night%> 
+            <%= link_to(lair) do %>
+            <strong><%= lair.name %></strong>
+            <% end %>
+            </li>
+
+            <% end %>
+        </ul>
+    </div>    
+</div>
+
+<h2>My own booking for other lairs</h2>
+
+
+
+<div class ="container">
+    <div class = "row">
+        <div class = "booking_cards">
+            <% @my_own_bookings.each do |booking| %>
+
+                <%= booking.start_date%>
+                <%= booking.end_date%>
+                <%= booking.status%>
+                <%= booking.lair.name%>
+                <br>
+                <br>
+
+
+
+            <% end %>
+        </div>
+    </div>
+</div>
+=======
 <h1>Dashboards#dashboard</h1>
 <%= render "lairs/new", user: @current_user, lair: @lair %>
+>>>>>>> master
