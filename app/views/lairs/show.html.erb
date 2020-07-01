@@ -33,3 +33,5 @@
 <div id="total-price">
 </div>
 </div>
+<%= render "lairs/edit", user: @current_user, lair: @lair %>
+<%= link_to "Delete #{@lair.name}", lair_path(@lair), method: :delete, data: { confirm: "Are you sure?" } %>
