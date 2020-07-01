@@ -21,7 +21,7 @@
           input_html: { type: :date,
                         class: 'select-date',
                         id: 'end-date',
-                        value: DateTime.now.tomorrow.strftime("%Y-%m-%d") } %>
+                        value: DateTime.now.strftime("%Y-%m-%d") } %>
     </div>
     <%= f.button :submit, 'BOOK THIS LAIR', class: 'btn btn-primary' %>
   <% end %>
