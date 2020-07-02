@@ -14,7 +14,9 @@ class PagesController < ApplicationController
 
     my_lair_array = []
     @accepted_bookings = []
-    @pending_bookings = []
+    @rejected_bookings = []
+    @pending_bookings = [] 
+
 
     @lairs.map do |lair|
       my_lair_array << lair.bookings
@@ -24,25 +26,17 @@ class PagesController < ApplicationController
     @my_lair_bookings.each do |booking|
       if booking[:status] == "accepted"
         @accepted_bookings << booking
+      elsif booking[:status] == "rejected"
+        @rejected_bookings << booking
       elsif booking[:status] == "pending"
         @pending_bookings << booking
       end
     end
-
-    @my_accept_bookings = [] 
-    @my_pending_bookings = []
     # @my_own_bookings = @user.bookings
     @my_own_bookings = @user.bookings
     # exclude lairs included in @lairs?
 
-    @my_own_bookings.each do |booking|
-      if booking[:status] == "accepted"
-        @my_accept_bookings << booking
-      elsif booking[:status] == "pending"
-        @my_pending_bookings << booking
-      end
-    end
-
     @favourites = current_user.favourites
   end
+
 end

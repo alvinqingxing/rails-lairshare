@@ -52,14 +52,14 @@
                         <div class="booking-card p-0 card col-3 mx-3 justify-content-between">
                             <div class="booking-card-info">
                             <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
-                            <strong>Booked By:</strong> <%= link_to booking.user.title, booking.user %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
                             <strong>From:</strong> <%= booking.start_date %> <br>
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "ACCEPT", accept_booking_path(booking), class: 'btn btn-block btn-success' %>
-                            <%= link_to "REJECT", reject_booking_path(booking), class: 'btn btn-block btn-danger' %>
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "ACCEPT", conversations_path(booking.conversation), class: 'btn btn-block btn-success' %>
+                            <%= link_to "REJECT", conversations_path(booking.conversation), class: 'btn btn-block btn-danger' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -78,12 +78,12 @@
                         <div class="booking-card p-0 card col-3 mx-3 justify-content-between">
                             <div class="booking-card-info">
                             <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
-                            <strong>Booked By:</strong> <%= link_to booking.user.title, booking.user %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
                             <strong>From:</strong> <%= booking.start_date %> <br>
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -102,17 +102,17 @@
                 No bookings pending!
             <% else %>
                 <div class="booking-container d-flex flex-start">
-                    <% @my_pending_bookings.each do |booking| %>
+                    <%= @my_pending_bookings.each do |booking| %>
                         <div class="booking-card p-0 card col-3 mx-3 justify-content-between">
                             <div class="booking-card-info">
                             <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
-                            <strong>Owner:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
                             <strong>From:</strong> <%= booking.start_date %> <br>
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "CANCEL", reject_booking_path(booking), class: 'btn btn-block btn-danger' %>
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "CANCEL", conversations_path(booking.conversation), class: 'btn btn-block btn-warning' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -131,12 +131,12 @@
                         <div class="booking-card p-0 card col-3 mx-3 justify-content-between">
                             <div class="booking-card-info">
                             <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
-                            <strong>Owner:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
                             <strong>From:</strong> <%= booking.start_date %> <br>
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -147,16 +147,9 @@
 
     <div class= "my-favourites">
         <h2>My Favourite Lairs</h2>
-        <div class="lairs d-flex justify-content-around h-100">
         <% @favourites.each do |fave| %>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://picsum.photos/500/400" class="card-img-top img-responsive" style="object-fit: cover; max-height: 20vh;">
-                <div class="card-body">
-                <%= link_to fave.lair.name, lair_path(fave.lair) %>
-                </div>
-            </div>
+        <li><%= link_to fave.lair.name, fave.lair %></li>
         <% end %>
-        </div>
     </div>
 
     </div>

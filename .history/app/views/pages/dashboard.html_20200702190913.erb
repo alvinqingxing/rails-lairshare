@@ -102,7 +102,7 @@
                 No bookings pending!
             <% else %>
                 <div class="booking-container d-flex flex-start">
-                    <% @my_pending_bookings.each do |booking| %>
+                    <%= @my_pending_bookings.each do |booking| %>
                         <div class="booking-card p-0 card col-3 mx-3 justify-content-between">
                             <div class="booking-card-info">
                             <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>

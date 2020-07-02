@@ -12,9 +12,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
-  end
-
   private
 
   def user_params
