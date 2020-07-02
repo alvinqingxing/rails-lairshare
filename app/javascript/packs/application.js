@@ -40,3 +40,9 @@ import flatpickr from "flatpickr";
 import {initFlatpickr} from "../plugins/init_flatpickr";
 
 initFlatpickr();
+
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
