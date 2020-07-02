@@ -98,7 +98,7 @@ Lair.create(
 )
 
 
-4.times do 
+10.times do 
   bookings = Booking.create!(
       user: User.all.sample,
       lair: Lair.all.sample,
