@@ -2,6 +2,11 @@ class LairsController < ApplicationController
 
   def index
     @lairs = policy_scope(Lair).order(created_at: :desc)
+    if params[:query].present? 
+      @lairs = Lair.search(params[:query])
+    else
+      @lairs = Lair.all
+    end
   end
 
   def new
