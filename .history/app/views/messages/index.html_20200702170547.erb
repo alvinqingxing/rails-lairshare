@@ -1,10 +1,10 @@
 <div class="container">
   <div class="col-6 offset-3 py-5">
-    <div class="border-bottom mb-3">
-      <h1>BOOKING #<%= @conversation.booking.id %></h1>
-      <%= @conversation.booking.lair.name %> <br>
-      <strong>From:</strong> <%= @conversation.booking.start_date %><br>
-      <strong>To:</strong> <%= @conversation.booking.end_date %><br>
+  <div class="border-bottom">
+    <h1>BOOKING #<%= @conversation.booking.id %></h1>
+    <%= @conversation.booking.lair.name %> <br>
+    <strong>From:</strong> <%= @conversation.booking.start_date %><br>
+    <strong>To:</strong> <%= @conversation.booking.end_date %><br>
     </div>
     <% if @over_ten %>
       <%= link_to 'Show Previous', '?m=all' %>
