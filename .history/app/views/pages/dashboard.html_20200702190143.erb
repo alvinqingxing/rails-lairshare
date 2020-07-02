@@ -148,11 +148,11 @@
     <div class= "my-favourites">
         <h2>My Favourite Lairs</h2>
         <div class="lairs d-flex justify-content-around h-100">
-        <% @favourites.each do |fave| %>
+        <% @favourites.each do |lair| %>
             <div class="card m-3" style="width: 18rem;">
                 <img src="https://picsum.photos/500/400" class="card-img-top img-responsive" style="object-fit: cover; max-height: 20vh;">
                 <div class="card-body">
-                <%= link_to fave.lair.name, lair_path(fave.lair) %>
+                <%= link_to lair.name, lair_path(lair) %>
                 </div>
             </div>
         <% end %>
