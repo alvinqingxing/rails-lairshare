@@ -44,6 +44,6 @@ class LairsController < ApplicationController
 private
 
   def lair_params
-    params.require(:lair).permit(:name, :description, :address, :price_per_night)
+    params.require(:lair).permit(:name, :description, :address, :price_per_night, :photo)
   end
 end
