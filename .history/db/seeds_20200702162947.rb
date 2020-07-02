@@ -112,20 +112,20 @@ Lair.create(
   )
   puts "Making a conversation..."
   conversation = Conversation.create(
-    booking: booking
+    booking: bookings
   )
   puts "Making messages..."
   3.times do
     Message.create(
       conversation: conversation,
-      user: booking.user,
+      user: bookings.user,
       body: Faker::Quote.matz
     )
   end
   3.times do
     Message.create(
       conversation: conversation,
-      user: booking.lair.user,
+      user: bookings.lair.user,
       body: Faker::Quote.matz
     )
   end
