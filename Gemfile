@@ -23,6 +23,13 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+
+#search 
+gem 'pg_search', '~> 2.3.0'
+
+#photos
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

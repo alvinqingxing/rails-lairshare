@@ -1,6 +1,11 @@
 class LairsController < ApplicationController
   def index
-    @lairs = Lair.all
+
+    if params[:query].present? 
+      @lairs = Lair.search(params[:query])
+    else
+      @lairs = Lair.all
+    end
   end
 
   def new
