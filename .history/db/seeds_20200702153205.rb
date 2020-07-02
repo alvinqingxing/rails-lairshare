@@ -105,10 +105,10 @@ Lair.create(
       start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
       end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
       status: ["rejected", "pending", "accepted"].sample,
-      total_price: rand(10..100)
-  )
-  Conversation.create(
-    booking: bookings
+      total_price: rand(10..100),
+      Conversation.create(
+        booking: bookings
+      )
   )
 end
 
