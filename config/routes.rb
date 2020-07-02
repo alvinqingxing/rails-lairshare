@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'reviews/index'
+  get 'reviews/new'
+  get 'reviews/create'
+  get 'reviews/show'
+  get 'reviews/edit'
+  get 'reviews/update'
+  get 'reviews/destroy'
   devise_for :users
   root to: 'pages#home'
   get    "dashboard", to: "pages#dashboard", as: :dashboard
   get '/user' => "pages#dashboard", :as => :user_root
-    
+
   resources :lairs do
     resources :bookings, only: [:create] do
     end
-    resources :favourites, only: [:create]
+    resources :favourites, only: [:create] do
+    end
+    resources :reviews, only: [:create, :show]
   end
 
   resources :bookings, only: [:show] do
@@ -19,8 +28,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
-
   resources :favourites, only: [:destroy]
+  resources :reviews, only: [:destroy]
 
 end
 
