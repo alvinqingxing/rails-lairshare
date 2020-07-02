@@ -16,14 +16,12 @@ Rails.application.routes.draw do
       get :accept
       get :reject
     end
-    resources :conversations, only: [:show, :create] do
-      resources :messages, only: [:index, :new, :create]
+    resources :conversations do
+      resources :messages
     end
   end
 
-  resources :users, only: [:index, :show] do
-    resources :conversations, only: [:index]
-  end
+  resources :users, only: [:index, :show]
 
   resources :favourites, only: [:destroy]
 
