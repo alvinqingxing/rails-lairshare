@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :bookings
-  has_many :conversations, through: :bookings
-  has_many :messages
+  has_many :conversations, through :bookings
+  has_many :messages, through :conversations
   has_many :lairs
   has_many :favourites
   # Include default devise modules. Others available are:
