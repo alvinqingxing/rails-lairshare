@@ -1,0 +1,25 @@
+<div class="container py-5">
+  <div class="d-flex flex-column col-6 offset-3">
+    <div class="h2 text-center border-bottom">BOOKING REF: #<%= @booking.id %>
+    <div id="booking-info">
+    <strong>Lair Booked:</strong> <%=link_to @booking.lair.name, @booking.lair %>
+    <strong>Lair Owner:</strong> <%= link_to @booking.lair.user.title, @booking.lair.user %>
+    <strong>Renting Villain:</strong> <%= link_to @booking.user.title, @booking.user %>
+    </div>
+    <div id="dates-and-price">
+    <strong>Start Date:</strong> <%= @booking.start_date %>
+    <strong>End Date:</strong> <%= @booking.end_date %>
+    <strong>Total Days:</strong> <%= @days %>
+    <strong>Total Price:</strong> $<%= '%.2f' % @total_price %>
+    <strong>Current Status:</strong> <%= @booking.status.titleize %>
+    </div>
+    <div class="d-flex flex-fill justify-content-around">
+      <%= simple_form_for(@booking, as: :booking, method: :get, url: reject_booking_path) do |f| %>
+        <%= f.submit 'CANCEL BOOKING', class: 'btn btn-danger' %>
+      <% end %>
+      <%= simple_form_for(@booking, as: :booking, method: :get, url: accept_booking_path) do |f| %>
+        <%= f.submit 'ACCEPT BOOKING', class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
