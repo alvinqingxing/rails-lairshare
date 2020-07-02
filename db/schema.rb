@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_072630) do
+ActiveRecord::Schema.define(version: 2020_07_02_050610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2020_07_01_072630) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lair_id"], name: "index_bookings_on_lair_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -49,12 +54,13 @@ ActiveRecord::Schema.define(version: 2020_07_01_072630) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "booking_id"
+    t.text "body"
+    t.bigint "conversation_id"
     t.bigint "user_id"
+    t.boolean "read", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["booking_id"], name: "index_messages_on_booking_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -74,9 +80,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_072630) do
 
   add_foreign_key "bookings", "lairs"
   add_foreign_key "bookings", "users"
+  add_foreign_key "conversations", "bookings"
   add_foreign_key "favourites", "lairs"
   add_foreign_key "favourites", "users"
   add_foreign_key "lairs", "users"
-  add_foreign_key "messages", "bookings"
-  add_foreign_key "messages", "users"
 end
