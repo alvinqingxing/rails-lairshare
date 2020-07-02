@@ -23,8 +23,11 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+#searching
 gem 'pg_search', '~> 2.3.0'
 
+#mapshowing
+gem 'geocoder'
 
 
 #photos
