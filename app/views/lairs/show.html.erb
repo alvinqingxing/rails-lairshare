@@ -5,6 +5,9 @@
   </div>
 </div>
 
+
+
+
 <div class="container">
 <%# info %>
   <div class="row" style="margin-top: 2em;">
@@ -30,6 +33,7 @@
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
 <strong>Book This Lair</strong>
   <%= simple_form_for([@lair, Booking.new]) do |f| %>
+  <div id='flat-booking-dates' data-unavailable="<%= @lair.unavailable_dates.to_json %>">
     <div class="form-row">
       <%= f.input :start_date, as: :string,
           input_html: { type: :date,
@@ -53,6 +57,8 @@
   <% end %>
   </div>
 <%end%>
+</div>
+
 <%# end of booking form %>
 
 <%# edit lair %>
@@ -67,3 +73,5 @@
 </div>
 
 <%# end of edit lair %>
+
+

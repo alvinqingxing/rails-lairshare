@@ -7,6 +7,7 @@ class LairsController < ApplicationController
     else
       @lairs = Lair.all
     end
+
   end
 
   def new
@@ -28,6 +29,8 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find(params[:id])
+    @booking = Booking.new
+  
     authorize @lair
   end
 

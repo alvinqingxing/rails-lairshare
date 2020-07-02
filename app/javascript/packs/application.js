@@ -32,3 +32,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+// adding data validation model for saerch function 
+
+import flatpickr from "flatpickr";
+
+import {initFlatpickr} from "../plugins/init_flatpickr";
+
+initFlatpickr();
