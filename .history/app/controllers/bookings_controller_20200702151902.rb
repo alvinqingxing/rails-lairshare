@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @days = (@booking.end_date - @booking.start_date).to_i
     @total_price = @days * @booking.lair.price_per_night
-    @conversation = @booking.conversation
+    @conversation = 
   end
 
   def accept
