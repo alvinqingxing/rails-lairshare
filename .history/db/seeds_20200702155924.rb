@@ -99,11 +99,9 @@ Lair.create(
 
 
 4.times do 
-  lair = Lair.all.sample
-  user = User.where.not(id: lair.user.id).sample
-  booking = Booking.create!(
-      lair: lair,
-      user: user,
+  bookings = Booking.create!(
+      user: User.all.sample,
+      lair: Lair.all.sample,
       start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
       end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
       status: ["rejected", "pending", "accepted"].sample,
@@ -114,18 +112,15 @@ Lair.create(
   )
   3.times do
     Message.create(
-      conversation: conversation,
       user: bookings.user,
       body: Faker::Quote.matz
     )
   end
   3.times do
     Message.create(
-      conversation: conversation,
       user: bookings.lair.user,
       body: Faker::Quote.matz
     )
-  end
 end
 
 

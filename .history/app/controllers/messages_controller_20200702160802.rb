@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
-      @messages = @messages[-10..]
+      @messages = @messages[-10..-1]
     end
     if params[:m]
       @over_ten = false
@@ -25,10 +25,12 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    redirect_to conversation_messages_path(@conversation) if @message.save
+    if @message.save
+      redirect_to conversation_messages_path(@conversation)
+    end
   end
 
-  private
+ private
 
   def message_params
     params.require(:message).permit(:body, :user_id)

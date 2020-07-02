@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     redirect_to conversation_messages_path(@conversation) if @message.save
   end
 
-  private
+ private
 
   def message_params
     params.require(:message).permit(:body, :user_id)

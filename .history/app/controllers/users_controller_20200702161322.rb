@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # all tasks
+  #all tasks 
   def index
     @users = User.all
   end
