@@ -59,7 +59,7 @@
                             <div class="action-links">
                             <%= link_to "ACCEPT", accept_booking_path(booking), class: 'btn btn-block btn-success' %>
                             <%= link_to "REJECT", reject_booking_path(booking), class: 'btn btn-block btn-danger' %>
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", booking.conversation, class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                             </div>
                             <div class="action-links">
                             <%= link_to "CANCEL", reject_booking_path(booking), class: 'btn btn-block btn-danger' %>
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                             <strong>To:</strong> <%= booking.end_date %> <br>
                             </div>
                             <div class="action-links">
-                            <%= link_to "SEND MESSAGE", conversation_messages_path(booking.conversation), class: 'btn btn-block btn-primary' %>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-block btn-primary' %>
                             <%= link_to "BOOKING INFO", booking, class: 'btn btn-block btn-secondary' %>
                             </div>
                         </div>
