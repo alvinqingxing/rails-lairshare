@@ -3,6 +3,11 @@
     <h1>User Dashboard</h1>
 </div>
 
+
+
+<%= link_to "Your Profile", user_path(@user), class: "btn btn-info"%>
+
+
 <div class="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 500px;">
 <h2>Bookings for my lairs</h2>
 </div>
@@ -31,7 +36,7 @@
 <%end%>
 
 <div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
-    <h4> Accetped Bookings</h4>
+    <h4> Bookings I Accepted</h4>
 </div>
 
 <div class ="row">
@@ -53,7 +58,7 @@
 
 
 <div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
-    <h4> Rejected Bookings</h4>
+    <h4> Bookings I Rejected</h4>
 </div>
 
 <div class ="row">
@@ -87,22 +92,23 @@
         <div class = "card m-5"  style="width: 400px;">
         <div class ="card text-center">
         <p class = "card-body"> <%= pending_booking.lair.name %></p>
-        <%= simple_form_for(booking, as: :booking, method: :get, url: reject_booking_path(pending_booking)) do |f| %>
+        <%= simple_form_for(pending_booking, as: :booking, method: :get, url: reject_booking_path(pending_booking)) do |f| %>
                     <%= f.submit 'REJECT BOOKING', class: 'btn btn-danger' %>
         <% end %>
 
-        <%= simple_form_for(booking, as: :booking, method: :get, url: accept_booking_path(pending_booking)) do |f| %>
+        <%= simple_form_for(pending_booking, as: :booking, method: :get, url: accept_booking_path(pending_booking)) do |f| %>
                     <%= f.submit 'ACCEPT BOOKING', class: 'btn btn-danger' %>
         <% end %>
         </div>
         </div>
         <% end %>    
     <% end %>
+
 </div>
 </div>
 
 <div class="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 500px;">
-    <h2>My Laris</h2>
+    <h2>My Lairs</h2>
 </div>
 
 
@@ -137,11 +143,6 @@
     <h2>My own booking for other lairs</h2>
 </div>
 
-
-
-
-
-
 <% @my_own_bookings.each do |booking| %>
     <% if booking[:status] == "accepted"%>
         <% my_accept_bookings << booking %>
@@ -163,7 +164,7 @@
 
 
 <div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
-    <h4> Accept Bookings</h4>
+    <h4>My Successful Bookings</h4>
 </div>
 
 <div class ="container">
@@ -186,7 +187,7 @@
 
 
 <div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
-    <h4> Reject Bookings </h4>
+    <h4> My Failed Bookings </h4>
 </div>
 
 
@@ -211,7 +212,6 @@
     <h4> Pending Booking </h4>
 </div>
 
-
 <div class ="container">
     <div class = "lair_booking_cards">
     <% if my_pending_bookings.empty? %>
@@ -221,7 +221,6 @@
         <div class ="lair_booking_card">
         <p><%= my_pending_booking.lair.name %></p>
         <%= link_to "Go to Booking", booking_path(my_pending_booking), class: "btn btn-info"  %>
-    
         </div>
         <% end %>    
     <% end %>

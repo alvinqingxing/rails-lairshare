@@ -1,15 +1,23 @@
 class LairsController < ApplicationController
+
   def index
-    @lairs = Lair.all
+    @lairs = policy_scope(Lair).order(created_at: :desc)
+    if params[:query].present? 
+      @lairs = Lair.search(params[:query])
+    else
+      @lairs = Lair.all
+    end
   end
 
   def new
     @user = current_user
     @lair = Lair.new
+    authorize @lair
   end
 
   def create
     @lair = Lair.new(lair_params)
+    authorize @lair
     @lair.user = current_user
     if @lair.save
       redirect_to lair_path(@lair)
@@ -20,6 +28,7 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find(params[:id])
+    authorize @lair
   end
 
   def edit
