@@ -21,6 +21,10 @@
           </div>
 <%# end of info %>
 
+
+<%# Authorize booking form %>
+<% if @lair.user != current_user %>
+<%# End of authorization %>
 <%# Booking form %>
 <div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
@@ -47,17 +51,19 @@
   </div>
     <%= f.button :submit, 'MAKE A BOOKING', class: 'btn btn-primary' %>
   <% end %>
-</div>
-</div>
+  </div>
+<%end%>
+<%# end of booking form %>
 
-<div class="container">
 <%# edit lair %>
-  <div class="row" style="margin-top: 2em;">
-    <div class="col-sm-8">
-    <hr>
+  <div class="col-sm-4">
 
-    <%= render "lairs/edit", user: @current_user, lair: @lair %>
+  <% if policy(@lair).update? %>
+    <%= render "lairs/edit", user: current_user, lair: @lair %>
+  <% end %>
+  
     </div>
-    </div>
-    </div>
+  </div>
+</div>
+
 <%# end of edit lair %>
