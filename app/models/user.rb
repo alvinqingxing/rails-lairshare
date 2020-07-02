@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :photo
   has_many :messages
   has_many :bookings
   has_many :lairs
