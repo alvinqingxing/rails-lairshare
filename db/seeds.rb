@@ -10,6 +10,12 @@ puts "Cleaning database..."
 Booking.destroy_all
 Lair.destroy_all
 User.destroy_all
+Booking.destroy_all
+Review.destroy_all
+Message.destroy_all
+Conversation.destroy_all
+
+
 
 puts "Creating Users & Lairs..."
 
@@ -129,8 +135,23 @@ Lair.create(
       body: Faker::Quote.matz
     )
   end
-  puts "Booking made!"
+  
+  puts "Making reviews"
+  5.times do
+    booking = Booking.all.sample
+    Review.create!(
+      title: Faker::Verb.base,
+      description: Faker::Quote.famous_last_words,
+      rating: rand(0..5),
+      booking: booking,
+      user: booking.user
+    )
+  end
+
 end
+
+
+
 
 
 puts "Finished!"

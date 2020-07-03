@@ -6,13 +6,13 @@ class Lair < ApplicationRecord
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
 
-  
 
   has_one_attached :photo
   belongs_to :user
   has_many :bookings
   has_many :favourites
-  has_many :reviews
+  has_many :reviews, through: :bookings
+
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
