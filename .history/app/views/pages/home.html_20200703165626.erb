@@ -1,0 +1,66 @@
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center d-flex">
+      <div class="leftside">
+        <h1 class="font-weight-light text-light">LairShare</h1>
+        <div class="lead text-light h3">For villains who know how to live.</div>
+      </div>
+      <div class="rightside col-6">
+        <p>From exclusive penthouses to underground laboratories, 
+        LairShare provides well-equipped, fully-secured lairs around the world.<p>
+
+        <p>Sign up today to join the fastest-growing, most secure 
+        lairsharing network for supervillains and landlords alike.</p>
+
+        <% if user_signed_in? %>
+        <%= link_to "VIEW OUR LAIRS", lairs_path, class: "btn btn-success"  %>
+        <% else %>
+        <%= link_to "SIGN UP TODAY", new_user_session_path, class: "btn btn-success"  %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Page Content -->
+
+<div class="container">
+  <div class="row flex-column">
+    <h1></h1>
+    <div>
+
+    </div>
+  </div>
+<br>
+<br>
+  <div class="row flex-column">
+    <h2>Why use LairBnB?</h2>
+    <div>
+    <ul>
+      <li>Private and safe - Only registered evildoers may add or access lair listings.</li>
+      <li>Meets your needs - Every lair comes with unique security and privacy features.</li>
+      <li>Premier addresses - Build your villaneous reputation in comfort and luxury.</li>
+    </ul>
+    </div>
+  </div>
+
+  <div class="row flex-column">
+  <h2>Hear from our users</h2>
+    <ul>
+      <li>An Evil CEO - With LairBnB, my lairs generate money even when I'm not staying there.</li>
+      <li>A Mad Scientist - I haven't had to worry about surprise superheroes in months!.</li>
+      <li>Anonymous Senator - I've met so many old and new friends through LairBnB.</li>
+    </ul>
+  </div>
+<br>
+  <div class="row flex-column">
+  <h2>Share or see lairs now!</h2>
+    <% if user_signed_in? %>
+    <%= link_to "VIEW OUR LAIRS", lairs_path, class: "btn btn-success"  %>
+    <% else %>
+    <%= link_to "SIGN UP TODAY", new_user_session_path, class: "btn btn-success"  %>
+    <% end %>
+  </div>
+<br><br>
+</div>
