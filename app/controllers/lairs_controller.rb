@@ -14,7 +14,7 @@ class LairsController < ApplicationController
       {
         lat: lair.latitude,
         lng: lair.longitude,
-        # infoWindow: render_to_string(partial: "info_window", locals: { lair: lair })
+        infoWindow: render_to_string(partial: "/lairs/map_window", locals: { lair: lair })
       }
     end
 
