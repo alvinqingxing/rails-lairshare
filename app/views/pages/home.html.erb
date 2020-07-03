@@ -1,7 +1,18 @@
-<div class="container">
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+        <h1 class="font-weight-light text-dark bg-light">LairShare</h1>
+        <p class="lead text-dark bg-light">For villains who know how to live.</p>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Page Content -->
 
+<div class="container">
   <div class="row flex-column">
-    <h1>For villains who know how to live</h1>
+    <h1></h1>
     <div>
     <p>From exclusive penthouses to underground laboratories, 
     LairBnB provides well-equipped, fully-secured lairs around the world.<p>
@@ -16,7 +27,8 @@
     <% end %>
     </div>
   </div>
-
+<br>
+<br>
   <div class="row flex-column">
     <h2>Why use LairBnB?</h2>
     <div>
@@ -36,7 +48,7 @@
       <li>Anonymous Senator - I've met so many old and new friends through LairBnB.</li>
     </ul>
   </div>
-
+<br>
   <div class="row flex-column">
   <h2>Share or see lairs now!</h2>
     <% if user_signed_in? %>
@@ -45,5 +57,5 @@
     <%= link_to "SIGN UP TODAY", new_user_session_path, class: "btn btn-success"  %>
     <% end %>
   </div>
-
+<br><br>
 </div>
