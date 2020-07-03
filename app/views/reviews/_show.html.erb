@@ -1,4 +1,6 @@
 <% @lair.reviews.each do |review| %>
+<div class = "card" style="height: 600px; margin:auto;">
+
   <p> Title: <%= review.title %></p>
   <p> User: <%= review.user.title %> </p>
   <p> Rating: <%= review.rating%> </p>
@@ -9,3 +11,4 @@
   <% end%>
   <% end %>
 <% end %>
+</div>
