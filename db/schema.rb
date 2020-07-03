@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_044226) do
+ActiveRecord::Schema.define(version: 2020_07_03_052056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2020_07_03_044226) do
   end
 
   create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.bigint "booking_id", null: false
     t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_044226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "booking_id", null: false
+    t.integer "rating"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["lair_id"], name: "index_reviews_on_lair_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
@@ -121,7 +124,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_044226) do
   add_foreign_key "favourites", "lairs"
   add_foreign_key "favourites", "users"
   add_foreign_key "lairs", "users"
-  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "lairs"
   add_foreign_key "reviews", "users"
