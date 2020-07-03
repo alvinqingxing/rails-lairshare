@@ -15,7 +15,7 @@
           <% user = User.find(message.user_id) %>
           <div class="item">
             <div class="content">
-              <div class="header d-flex justify-content-between">
+              <div class="header">
               <div><strong><%= user.title %></strong> <%= message.message_time %></div>
               <div>
               <% if message.read %>
