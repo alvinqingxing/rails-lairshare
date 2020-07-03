@@ -1,0 +1,69 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><h2><%= @lair.name %></h2></h1>
+    <p class="lead">Book this lair today!</p>
+  </div>
+</div>
+
+<div class="container">
+<%# info %>
+  <div class="row" style="margin-top: 2em;">
+    <div class="col-sm-8">
+    <%# font awesome added %>
+      <p><i class="fas fa-hotel"></i>
+      <strong>About</strong><br> <%= @lair.description %></p>
+      <p><i class="fas fa-map-marker-alt"></i>
+      <strong>Location</strong><br> <%= @lair.address %></p>
+      <p><i class="fas fa-dollar-sign"></i>
+      <strong>Price Per Night</strong><br> $<%= '%.2f' % @lair.price_per_night %></p>
+      <p><i class="fas fa-fingerprint"></i>
+      <strong>Owned By</strong><br> <%= link_to @lair.user.title, @lair.user %></p>
+          </div>
+<%# end of info %>
+
+
+<%# Authorize booking form %>
+<% if @lair.user != current_user %>
+<%# End of authorization %>
+<%# Booking form %>
+<div class="col-sm-4">
+<div id="booking-form" data-price="<%= @lair.price_per_night %>">
+<strong>Book This Lair</strong>
+  <%= simple_form_for([@lair, Booking.new]) do |f| %>
+    <div class="form-row">
+      <%= f.input :start_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'start-date',
+                        value: DateTime.now.strftime("%Y-%m-%d") } %>
+    </div>
+    <div class="form-row">
+
+      <%= f.input :end_date, as: :string,
+          input_html: { type: :date,
+                        class: 'select-date',
+                        id: 'end-date',
+                        value: DateTime.now.tomorrow.strftime("%Y-%m-%d") } %>
+    </div>
+  <div id="booking-info">
+    <div id="total-days"></div>
+    <div id="total-price"></div>
+  </div>
+    <%= f.button :submit, 'MAKE A BOOKING', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+<%end%>
+<%# end of booking form %>
+
+<%# edit lair %>
+  <div class="col-sm-4">
+
+    <% if policy(@lair).update? %>
+      <%= render "lairs/edit", user: current_user, lair: @lair %>
+    <% end %>
+  
+    </div>
+  </div>
+</div>
+
+<%# end of edit lair %>

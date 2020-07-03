@@ -23,28 +23,28 @@ lex_luthor = User.create(
 )
 dr_no = User.create(
   title: 'Dr. No',
-  email: 'julius_no@spectre.com',
+  email: 'test1@test.com',
   password: 'password',
   profile: 'The unwanted child of a German missionary and a Chinese girl of a good family.
             Book my island and see what comforts $10,000,000 of Tong gold bullion can buy.'
 )
 raoul_silva = User.create(
   title: 'Raoul Silva',
-  email: 'raoul_silva@spectre.com',
+  email: 'test2@test.com',
   password: 'password',
   profile: "I used to be based in Hong Kong and Asia, but I'm looking to return
             to England and Scotland in the coming months."
 )
 doc_ock = User.create(
   title: 'Doc Ock',
-  email: 'doctoroctopus@hydra.com',
+  email: 'test3@test.com',
   password: 'password',
   profile: 'Nuclear physicist, atomic research consultant, inventor and lecturer.
             My home base is New York but I have contacts and contracts around the world.'
 )
 justin_hammer = User.create(
   title: 'Justin Hammer',
-  email: 'the_hammer@hammerindustries.com',
+  email: 'test4@test.com',
   password: 'password',
   profile: "Whether you're looking for labs with the latest tech, floating hideouts in 
             international waters, or d-day bunkers, I've got it all."
@@ -98,15 +98,38 @@ Lair.create(
 )
 
 
-10.times do 
-  bookings = Booking.create!(
-      user: User.all.sample,
-      lair: Lair.all.sample,
-      start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-      end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
-      status: ["rejected", "pending", "accepted"].sample,
-      total_price: rand(10..100)
+4.times do 
+  puts "Making a booking..."
+  lair = Lair.all.sample
+  user = User.where.not(id: lair.user.id).sample
+  booking = Booking.create!(
+    lair: lair,
+    user: user,
+    start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+    end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
+    status: ["rejected", "pending", "accepted"].sample,
+    total_price: rand(10..100)
   )
+  puts "Making a conversation..."
+  conversation = Conversation.create(
+    booking: booking
+  )
+  puts "Making messages..."
+  3.times do
+    Message.create(
+      conversation: conversation,
+      user: booking.user,
+      body: Faker::Quote.matz
+    )
+  end
+  3.times do
+    Message.create(
+      conversation: conversation,
+      user: booking.lair.user,
+      body: Faker::Quote.matz
+    )
+  end
+  puts "Booking made!"
 end
 
 

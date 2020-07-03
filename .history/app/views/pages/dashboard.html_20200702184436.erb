@@ -1,0 +1,206 @@
+<div class ="banner">
+    <h1>My Evil Dashboard</h1>
+</div>
+
+<div class="container">
+    <div id="personal-info" class="my-3">
+        <div class="d-flex justify-content-between">
+            <h2>About Me</h2>
+            <div><%= link_to "FULL PROFILE", user_path(@user), class: "btn btn-info" %></div>
+        </div>
+        <strong>Name:</strong> <%= @user.title %><br>
+        <strong>Email:</strong> <%= @user.email %><br>
+        <strong>Lairs Listed:</strong> 
+        <% if @lairs.count == 0 %>
+        None yet!
+        <% else %>
+        <%= @lairs.count %>
+        <% end %>
+    </div>
+
+    <div id="lair-info" class="mb-3">
+        <div class="d-flex justify-content-between">
+            <h2>My Lairs</h2>
+            <div><%= link_to "ADD NEW LAIR", new_lair_url, class: "btn btn-info"%></div>
+        </div>
+        <% if @lairs == "nil" %>
+        You have yet to add a lair.
+        <% else %>
+        <div class="lairs d-flex justify-content-around h-100">
+            <% @lairs.each do |lair| %>
+            <div class="card m-3" style="width: 18rem;">
+                <img src="https://picsum.photos/500/400" class="card-img-top img-responsive" style="object-fit: cover; max-height: 20vh;">
+                <div class="card-body">
+                <%= link_to lair.name, lair_path(lair) %>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+
+    <div id="booking-info" class="mb-3">
+        <h2 class="mb-3">Bookings - My Lairs</h2>
+
+        <div id="pending-bookings" class="mb-3">
+        <h3>Pending Bookings</h3>
+            <% if @pending_bookings.empty? %>
+                No bookings pending!
+            <% else %>
+                <div class="booking-container d-flex flex-start">
+                    <%= @pending_bookings.each do |booking| %>
+                        <div class="booking-card card col-3 mx-3 h-100">
+                            <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
+                            <div class="action-links">
+                            <div class="actions">
+                                <%= link_to "ACCEPT", conversations_path(booking.conversation), class: 'text-success' %>
+                                <%= link_to "REJECT", conversations_path(booking.conversation), class: 'text-danger' %>
+                            </div>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-primary' %>
+                            <%= link_to "BOOKING INFO", booking, class: 'btn btn-secondary' %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+        
+        <div id="accepted-bookings" class="mb-3">
+        <h3>Upcoming Bookings</h3>
+            <% if @accepted_bookings.empty? %>
+                No upcoming bookings!
+            <% else %>
+                <div class="booking-container d-flex flex-start">
+                    <% @accepted_bookings.each do |booking| %>
+                        <div class="booking-card card col-3 mx-3">
+                            <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-primary' %>
+                            <%= link_to "BOOKING INFO", booking, class: 'btn btn-secondary' %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        
+        
+        <h2 class="mb-3">Bookings - My Own</h2>
+
+        <div id="pending-bookings" class="mb-3">
+        <h3>Pending Bookings</h3>
+            <% if @pending_bookings.empty? %>
+                No bookings pending!
+            <% else %>
+                <div class="booking-container d-flex flex-start">
+                    <%= @pending_bookings.each do |booking| %>
+                        <div class="booking-card card col-3 mx-3 h-100">
+                            <strong>Lair:</strong> <%= link_to booking.lair.name, booking.lair %> <br>
+                            <strong>Booked By:</strong> <%= link_to booking.lair.user.title, booking.lair.user %> <br>
+                            <div class="action-links">
+                            <div class="actions">
+                                <%= link_to "ACCEPT", conversations_path(booking.conversation), class: 'text-success' %>
+                                <%= link_to "REJECT", conversations_path(booking.conversation), class: 'text-danger' %>
+                            </div>
+                            <%= link_to "SEND MESSAGE", conversations_path(booking.conversation), class: 'btn btn-primary' %>
+                            <%= link_to "BOOKING INFO", booking, class: 'btn btn-secondary' %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+</div>
+
+
+<% my_accept_bookings = [] %>
+<% my_reject_bookings = [] %>
+<% my_pending_bookings = [] %>
+
+
+
+
+<div class="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 500px;">
+    <h2>My own booking for other lairs</h2>
+</div>
+
+<% @my_own_bookings.each do |booking| %>
+    <% if booking[:status] == "accepted"%>
+        <% my_accept_bookings << booking %>
+    <%end%>
+<%end%>
+
+<% @my_own_bookings.each do |booking| %>
+    <% if booking[:status] == "rejected"%>
+        <% my_reject_bookings << booking %>
+    <%end%>
+<%end%>
+
+<% @my_own_bookings.each do |booking| %>
+    <% if booking[:status] == "pending"%>
+        <% my_pending_bookings << booking %>
+    <%end%>
+<%end%>
+
+
+
+<div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
+    <h4>My Successful Bookings</h4>
+</div>
+
+<div class ="container">
+    <div class = "lair_booking_cards">
+        <% if my_accept_bookings.empty? %>
+            <p>None</p>
+        <%else%>
+            <% my_accept_bookings.each do |my_accept_booking| %>
+            <div class ="lair_booking_card">
+            <p><%= my_accept_booking.lair.name %></p>    
+            <%= link_to "Go to Booking", booking_path(my_accept_booking), class: "btn btn-info"  %>
+
+            </div>
+            <% end %>    
+        <% end %>
+    </div>
+</div>
+
+
+
+
+<div class ="btn btn-primary btn-lg btn-block mx-auto m-5" style="width: 400px;">
+    <h4> My Failed Bookings </h4>
+</div>
+
+
+<div class ="container">
+    <div class = "lair_booking_cards">
+    <% if my_reject_bookings.empty? %>
+        <p>None</p>
+    <%else%>
+        <% my_reject_bookings.each do |my_reject_booking| %>
+        <div class ="lair_booking_card">
+        <p><%= my_reject_booking.lair.name %></p>
+        <%= link_to "Go to Booking", booking_path(my_reject_booking), class: "btn btn-info"  %>
+        </div>
+        <% end %>    
+    <% end %>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class = "container">
+    <div class= "my-favourites">
+        <h2>Your Favourite Lairs</h2>
+        <% @favourites.each do |fave| %>
+        <li><%= link_to fave.lair.name, fave.lair %></li>
+        <% end %>
+    </div>
+</div>

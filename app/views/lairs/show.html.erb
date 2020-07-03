@@ -64,9 +64,9 @@
 <%# edit lair %>
   <div class="col-sm-4">
 
-  <% if policy(@lair).update? %>
-    <%= render "lairs/edit", user: current_user, lair: @lair %>
-  <% end %>
+    <% if policy(@lair).update? %>
+      <%= render "lairs/edit", user: current_user, lair: @lair %>
+    <% end %>
   
     </div>
   </div>

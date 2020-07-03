@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="offset-md-2 mt-4">
+    <h2>
+    Browse Lairs
+    </h2>
+  </div>
+</div>
+
+
+<%= form_tag lairs_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a Lair"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @lairs.empty? %>
+    <p> None </p>
+    <%= link_to "Go back to previous page", :back , class: "btn btn-info"  %>
+<%end%>
+
+
+
+
+
+<div class="container">    
+  <div class="row">
+    <% @lairs.each do |lair| %>
+      <div class="col-md-4 mx-auto d-flex align-items-stretch">
+        <div class="card m-3" style="width: 18rem;">
+          <img src="https://source.unsplash.com/random" class="card-img-top img-responsive" style="object-fit: cover; max-height: 20vh;">
+          <div class="card-body">
+            <%= link_to lair_favourites_path(lair),
+                          method: :post,
+                          class: 'text-decoration-none favourite-button' do %>
+              ♡
+            <% end %>
+            <%= link_to lair.name, lair_path(lair) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
