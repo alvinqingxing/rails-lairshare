@@ -18,7 +18,7 @@
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.title %></strong> <%= message.message_time %></div>
               <div>
-              <%= link_to "delete", conversation_message_path(id: message.id), method: :delete, class: 'text-warning', remote: true %>
+              <%= link_to "delete", restaurant, method: :delete, class: 'text-warning', remote: true %>
               <% if message.read %>
               <i class="far fa-eye"></i>
               <% else %>
@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <%= simple_form_for([ @conversation, @message ], remote: true) do |f| %>
-    <div class="form-group" id="submit-box">
+    <div class="form-group">
       <%= f.input :body, label: false, placeholder: 'Your message here', wrapper_html: { class: 'flex-fill p-0 m-0' } %>
       <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
       <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
