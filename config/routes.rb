@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   resources :conversations, only: [:index] do
     resources :messages, only: [:index, :new, :create]
