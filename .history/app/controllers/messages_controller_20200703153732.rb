@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
   def create
     @message = @conversation.messages.new(message_params)
     redirect_to conversation_messages_path(@conversation, anchor: "message-#{@message.id}") if @message.save
+   
   end
 
   private
