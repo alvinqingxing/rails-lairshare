@@ -1,7 +1,6 @@
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="background-image: url('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/vendetta5.jpg')">
   <div class="container">
     <h1 class="display-4"><h2><%= @lair.name %></h2></h1>
-    <p class="lead">Book this lair today!</p>
   </div>
 </div>
 
@@ -13,6 +12,7 @@
   <div class="row" style="margin-top: 2em;">
     <div class="col-sm-8">
     <%# font awesome added %>
+      <%= cl_image_tag @lair.photo.key, height: 300, width: 400, crop: :fill %>
       <p><i class="fas fa-hotel"></i>
       <strong>About</strong><br> <%= @lair.description %></p>
       <p><i class="fas fa-map-marker-alt"></i>
@@ -21,13 +21,12 @@
       <strong>Price Per Night</strong><br> $<%= '%.2f' % @lair.price_per_night %></p>
       <p><i class="fas fa-fingerprint"></i>
       <strong>Owned By</strong><br> <%= link_to @lair.user.title, @lair.user %></p>
-          </div>
 <%# end of info %>
-
 
 <%# Authorize booking form %>
 <% if @lair.user != current_user %>
 <%# End of authorization %>
+
 <%# Booking form %>
 <div class="col-sm-4">
 <div id="booking-form" data-price="<%= @lair.price_per_night %>">
@@ -58,6 +57,7 @@
   </div>
 <%end%>
 </div>
+
 
 <%# end of booking form %>
 
