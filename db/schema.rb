@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_055208) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.bigint "booking_id", null: false
     t.index ["booking_id"], name: "index_conversations_on_booking_id"
   end
@@ -122,6 +120,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_055208) do
   add_foreign_key "favourites", "lairs"
   add_foreign_key "favourites", "users"
   add_foreign_key "lairs", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end
