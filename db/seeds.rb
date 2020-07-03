@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 puts "Cleaning database..."
 Booking.destroy_all
@@ -13,14 +14,15 @@ User.destroy_all
 
 puts "Creating Users & Lairs..."
 
-
 lex_luthor = User.create(
   title: 'Lex Luthor',
   email: 'test@test.com',
   password: 'password',
   profile: "Metropolis may be my home base, but my business takes me around the world.
-            If you're a regular customer of LexCorp, message me for special benefits."
+            If you're a regular customer of LexCorp, message me for special benefits.",
 )
+
+
 dr_no = User.create(
   title: 'Dr. No',
   email: 'test1@test.com',
@@ -50,8 +52,10 @@ justin_hammer = User.create(
             international waters, or d-day bunkers, I've got it all."
 )
 
+# LAIRSvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-Lair.create(
+
+museum = Lair.create(
   name: 'Abandoned Museum in the Heart of Town',
   description: "Shake hands with royalty to enter this hidden HQ. This extensively-renovated
                 museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
@@ -60,7 +64,11 @@ Lair.create(
   price_per_night: 4000.0,
   user: lex_luthor
 )
-Lair.create(
+file = URI.open('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/1.jpg')
+museum.photo.attach(io: file, filename: '1.jpg', content_type: 'image/jpg')
+
+
+luxury = Lair.create(
   name: 'Luxury Underground Station',
   description: 'Enjoy palatial comfort and old-time grandeur in this enviably luxurious,
                 exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
@@ -69,7 +77,11 @@ Lair.create(
   price_per_night: 5000.0,
   user: lex_luthor
 )
-Lair.create(
+file = URI.open('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/2.jpg')
+luxury.photo.attach(io: file, filename: '2.jpg', content_type: 'image/jpg')
+
+
+cadmus = Lair.create(
   name: 'Cadmus Labs',
   description: 'This large facility is a dream-come-true for megalomanical scientists
                 looking to play god. Cloning, bioengineering, drug development and testing --
@@ -78,7 +90,11 @@ Lair.create(
   price_per_night: 6000.0,
   user: lex_luthor
 )
-Lair.create(
+file = URI.open('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/3.jpg')
+cadmus.photo.attach(io: file, filename: '3.jpg', content_type: 'image/jpg')
+
+
+secure = Lair.create(
   name: 'Secure and Private Island Hideaway',
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
                 a nuclear reactor, landing pads and docks, as well as a fully-trained,
@@ -87,7 +103,10 @@ Lair.create(
   price_per_night: 1500.0,
   user: dr_no
 )
-Lair.create(
+file = URI.open('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/4.jpg')
+secure.photo.attach(io: file, filename: '4.jpg', content_type: 'image/jpg')
+
+hammer = Lair.create(
   name: 'Hammer Industries HQ',
   description: "Ideal for prototyping, testing and developing superweapons. You won't find
                 a better bargain this close to NYC, besides the Avengers HQ - and if you're
@@ -96,6 +115,8 @@ Lair.create(
   price_per_night: 10_000.0,
   user: justin_hammer
 )
+file = URI.open('https://raw.githubusercontent.com/ouningfei/rails-mister-cocktail/master/5.jpg')
+hammer.photo.attach(io: file, filename: '5.jpg', content_type: 'image/jpg')
 
 
 4.times do 
