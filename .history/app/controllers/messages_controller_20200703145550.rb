@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
     end
     @messages.each do |message|
       message.read = true if message.user_id != current_user.id
-      message.save
     end
     @message = @conversation.messages.new
   end
