@@ -1,0 +1,8 @@
+
+<h1> Thank you for staying at our lair! Please ddd a new review</h1>
+<%= simple_form_for [@booking, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :rating, priority:5, collection: 0..5 %>
+  <%= f.button :submit, class: "btn btn-link" %>
+<% end %>

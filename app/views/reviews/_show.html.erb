@@ -1,8 +1,11 @@
 <% @lair.reviews.each do |review| %>
-  <%= review.title %>
-  <%= review.user %>
-  <%= review.description %>
-  <%= link_to review_path(review), method: :delete, data: { confirm: "Are you sure?" } do %>
-  <i class="fa fa-trash destroy_review"></i>
+  <p><%= review.title %></p>
+  <p> <%= review.user.title %> </p>
+  <p> <%= review.rating%> </p>
+  <p> <%= review.description %> </p> <br>
+  <% if current_user == @lair.user %>
+    <%= link_to review_path(review), class:"btn btn-info", method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash destroy_review"></i>
+  <% end%>
   <% end %>
 <% end %>

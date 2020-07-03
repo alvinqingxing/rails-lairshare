@@ -5,28 +5,44 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+    authorize @review
   end
 
   def create
-    @lair = Lair.find(params[:lair_id])
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
-    @review.lair = @lair
+    @user = @booking.user
+
+    #@user = current_user
+    
+
+    @review.booking = @booking
+    @review.user = @user
+
+    @lair = @booking.lair
+    authorize @review
+
     if @review.save
       redirect_to lair_path(@lair)
     else
-      render "review/create"
+      render "review/new"
     end
   end
 
   def destroy
     @review = Review.find(params[:id])
+
+    authorize @review
+
     @review.destroy
-    redirect_to lair_path(@review.lair)
+    redirect_to lair_path(@review.booking.lair)
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:title, :description, :user_id)
+    params.require(:review).permit(:title, :description, :rating )
   end
 end

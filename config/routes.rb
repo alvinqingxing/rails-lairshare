@@ -20,11 +20,13 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :show]
   end
 
+  
   resources :bookings, only: [:show] do
     member do
       get :accept
       get :reject
     end
+    resources :reviews, only: [:new, :create, :show]
   end
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
