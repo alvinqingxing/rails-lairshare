@@ -7,7 +7,7 @@
       <strong>To:</strong> <%= @conversation.booking.end_date %><br>
     </div>
     <% if @over_ten %>
-      <%= link_to 'Show Previous', '?m=all' %>
+      <%= link_to 'Show Previous', '?m=all', remote: true %>
     <% end %>
     <div class="ui segment">
       <% @messages.each do |message| %>

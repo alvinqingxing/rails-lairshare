@@ -31,7 +31,6 @@ class MessagesController < ApplicationController
 
   def destroy
     @message = Message.find(params[:message_id])
-    @message.destroy
   end
 
   private

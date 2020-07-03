@@ -29,11 +29,6 @@ class MessagesController < ApplicationController
     redirect_to conversation_messages_path(@conversation, anchor: "message-#{@message.id}") if @message.save
   end
 
-  def destroy
-    @message = Message.find(params[:message_id])
-    @message.destroy
-  end
-
   private
 
   def message_params

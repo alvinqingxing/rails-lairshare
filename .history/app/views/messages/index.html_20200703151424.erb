@@ -26,7 +26,7 @@
               </div>
               </div>
               <div class="list">
-                <div class="item" id="message-<%= message.id %>">
+                <div class="item">
                   <i class="right triangle icon"></i>
                   <%= message.body %>
                 </div>
@@ -36,12 +36,10 @@
         <% end %>
       <% end %>
     </div>
-    <%= simple_form_for([ @conversation, @message ], remote: true) do |f| %>
-    <div class="form-group">
-      <%= f.input :body, label: false, placeholder: 'Your message here', wrapper_html: { class: 'flex-fill p-0 m-0' } %>
+    <%= simple_form_for([ @conversation, @message ], remote: true, html: { class: 'form-inline' }) do |f| %>
+      <%= f.input :body, label: false, placeholder: 'Your message here', class: 'flex-fill form-control', input_html: { class: 'flex-fill' } %>
       <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-      <%= f.button :submit, "SEND", class: 'btn btn-primary btn-block' %>
-    </div>
+      <%= f.button :submit, "SEND", class: 'btn btn-primary flex-fill' %>
     <% end %>
   </div>
 </div>

@@ -13,9 +13,8 @@ class MessagesController < ApplicationController
       @over_ten = false
       @messages = @conversation.messages
     end
-    @messages.each do |message|
-      message.read = true if message.user_id != current_user.id
-      message.save
+    if @messages.last
+      @messages.last.read = true if @messages.last.user_id != current_user.id
     end
     @message = @conversation.messages.new
   end
@@ -26,12 +25,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    redirect_to conversation_messages_path(@conversation, anchor: "message-#{@message.id}") if @message.save
-  end
-
-  def destroy
-    @message = Message.find(params[:message_id])
-    @message.destroy
+    redirect_to conversation_messages_path(@conversation) if @message.save
   end
 
   private
