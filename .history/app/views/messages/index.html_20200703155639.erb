@@ -18,6 +18,7 @@
               <div class="header d-flex justify-content-between">
               <div><strong><%= user.title %></strong> <%= message.message_time %></div>
               <div>
+              <%= link_to "delete", conversation_message, method: :delete, remote: true %>
               <% if message.read %>
               <i class="far fa-eye"></i>
               <% else %>
