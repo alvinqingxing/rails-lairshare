@@ -36,8 +36,8 @@
         <% end %>
       <% end %>
     </div>
-    <%= simple_form_for([ @conversation, @message ], remote: true) do |f| %>
-      <%= f.input :body, label: false, placeholder: 'Your message here' %>
+    <%= simple_form_for([ @conversation, @message ], remote: true), class: 'form-inline' do |f| %>
+      <%= f.input :body, label: false, placeholder: 'Your message here', class: 'form-control' %>
       <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
       <%= f.button :submit, "SEND", class: 'btn btn-primary' %>
     <% end %>
