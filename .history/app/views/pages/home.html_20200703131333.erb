@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="row">
+  <h1>For villains who know how to live</h1>
+  <p>From exclusive penthouses to underground laboratories, 
+  LairBnB provides well-equipped, fully-secured lairs around the world.<p>
+
+  <p>Sign up today to join the fastest-growing, most secure 
+  lairsharing network for supervillains and landlords alike.</p>
+
+  <% if user_signed_in? %>
+  <%= link_to "SEE LAIRS NOW", lairs_path, class: "btn btn-success"  %>
+  <% else %>
+  <%= link_to "SIGN UP TODAY", new_user_session_path, class: "btn btn-success"  %>
+  <% end %>
+
+  </div>
+
+  <div class="row">
+  <h2>Why Use LairBnB?</h2>
+  <ul>
+    <li>Private and safe - Only registered evildoers may add or access lair listings.</li>
+    <li>Meets your needs - Every lair comes with unique security and privacy features.</li>
+    <li>Premier addresses - Build your villaneous reputation in comfort and luxury.</li>
+  </ul>
+  </div>
+
+  <div class="row">
+  <h2></h2>
+  </div>
+
+</div>
