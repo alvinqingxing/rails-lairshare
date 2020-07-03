@@ -30,9 +30,8 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:message_id])
     @message.destroy
-    redirect_to conversation_messages_path(@conversation, anchor: "submit-box")
   end
 
   private

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action do
+  before_action, only: [:index, :new, :create] do
     @conversation = Conversation.find(params[:conversation_id])
   end
 
@@ -30,9 +30,8 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:message_id])
     @message.destroy
-    redirect_to conversation_messages_path(@conversation, anchor: "submit-box")
   end
 
   private
