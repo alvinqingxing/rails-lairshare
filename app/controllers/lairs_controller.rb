@@ -1,12 +1,23 @@
 class LairsController < ApplicationController
 
   def index
+    
     @lairs = policy_scope(Lair).order(created_at: :desc)
     if params[:query].present? 
       @lairs = Lair.search(params[:query])
     else
       @lairs = Lair.all
     end
+
+    @lairs = Lair.geocoded
+    @markers = @lairs.map do |lair|
+      {
+        lat: lair.latitude,
+        lng: lair.longitude,
+        infoWindow: render_to_string(partial: "/lairs/map_window", locals: { lair: lair })
+      }
+    end
+
   end
 
   def new
@@ -28,6 +39,8 @@ class LairsController < ApplicationController
 
   def show
     @lair = Lair.find(params[:id])
+    @booking = Booking.new
+  
     authorize @lair
   end
 

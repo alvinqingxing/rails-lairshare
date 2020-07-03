@@ -56,7 +56,7 @@ Lair.create(
   description: "Shake hands with royalty to enter this hidden HQ. This extensively-renovated
                 museum base comes fully equipped with wall-to-wall CCTV cameras, for all your
                 superhero stalking and surveillance needs. Also houses a hero statue collection.",
-  address: 'Entrance next to the Julius Caesar Statue, Metropolis',
+  address: 'Paris, France',
   price_per_night: 4000.0,
   user: lex_luthor
 )
@@ -65,7 +65,7 @@ Lair.create(
   description: 'Enjoy palatial comfort and old-time grandeur in this enviably luxurious,
                 exclusive hideout in the heart of New York. Not many can enjoy a Park Avenue
                 address like this one, but you could be among them.',
-  address: '200 Feet Underground, Park Avenue, NY',
+  address: 'Park Avenue, NY',
   price_per_night: 5000.0,
   user: lex_luthor
 )
@@ -74,7 +74,7 @@ Lair.create(
   description: 'This large facility is a dream-come-true for megalomanical scientists
                 looking to play god. Cloning, bioengineering, drug development and testing --
                 you name it, Cadmus has the facilities for it.',
-  address: 'Just outside downtown Metropolis',
+  address: 'Singapore',
   price_per_night: 6000.0,
   user: lex_luthor
 )
@@ -83,7 +83,7 @@ Lair.create(
   description: 'This beautiful island comes with a private apartment, a rocket launch site,
                 a nuclear reactor, landing pads and docks, as well as a fully-trained,
                 well-equipped group of staff. SPECTRE members, contact me directly for bookings.',
-  address: 'Crab Key, Jamaica',
+  address: 'Jamaica',
   price_per_night: 1500.0,
   user: dr_no
 )
