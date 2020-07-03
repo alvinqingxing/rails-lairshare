@@ -11,21 +11,10 @@
     color: white;
 }
 
-h2 {
-  margin: 1em;
-}
 .home-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-}
-
-.grid-item {
-  margin: 1em;
-  padding: 1em;
-  text-align: center;
-  .grid-title {
-    font-size: 1.5em;
-    text-align: center;
-  }
+  margin: 3em;
+  padding: 3em;
 }

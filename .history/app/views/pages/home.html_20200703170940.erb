@@ -2,7 +2,7 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center d-flex">
-      <div class="leftside col-4 offset-2 d-flex flex-column justify-content-center">
+      <div class="leftside col-4 offset-2 d-flex flex-column  justify-content-center">
         <h1 class="font-weight-light text-light">LairShare</h1>
         <div class="lead text-light h3">For villains who know how to live.</div>
       </div>
@@ -26,8 +26,8 @@
 <!-- Page Content -->
 
 <div class="container">
-  <div class="row flex-column">
-    <h2 class="text-center">Why use LairBnB?</h2>
+  <div class="row flex-column  justify-content-center">
+    <h2>Why use LairBnB?</h2>
     <div>
       <div class="home-grid">
         <div class="grid-item">
@@ -46,8 +46,8 @@
     </div>
   </div>
 
-  <div class="row flex-column border-top border-bottom">
-    <h2 class="text-center">Hear from our users</h2>
+  <div class="row flex-column  justify-content-center">
+    <h2>Hear from our users</h2>
     <div>
       <div class="home-grid">
         <div class="grid-item">
@@ -66,9 +66,9 @@
     </div>
   </div>
 
-  <div class="row flex-column">
-    <h2 class="text-center">Start your LairSharing journey today!</h2>
-    <div class="d-flex justify-content-center">
+  <div class="row flex-column  justify-content-center">
+    <h2>Start your LairSharing journey today!</h2>
+    <div>
     <% if user_signed_in? %>
     <%= link_to "VIEW OUR LAIRS", lairs_path, class: "btn btn-success"  %>
     <% else %>
